@@ -1,0 +1,19 @@
+{
+  "title": "Owl's Nest",
+  "description": "Top secret research facility used for strategic R&D projects in the TwilioQuest Program. Birthplace of Cedric and the CEV 'Fog Owl' prototype.",
+  "mission_icon": "mission_icon.png",
+  "is_mission": true,
+  "priority": 1,
+  "backgroundMusic": "fascinatingarea_108253b",
+  "backgroundEffect": {
+    "key": "starfield",
+    "options": {
+      "direction": "rightToLeft",
+      "baseSpeed": 0.015
+    }
+  },
+  "flavorTextOverrides": {
+    "bookshelf": "There's nothing like a good book."
+  },
+  "objectives": ["example_objective", "example_objective2"]
+}
