@@ -1,12 +1,4 @@
 { "columns":0,
- "editorsettings":
-    {
-     "export":
-        {
-         "format":"",
-         "target":"."
-        }
-    },
  "grid":
     {
      "height":1,
@@ -16,9 +8,9 @@
  "margin":0,
  "name":"MyCustomObjects",
  "spacing":0,
- "tilecount":1,
- "tiledversion":"1.4.3",
- "tileheight":24,
+ "tilecount":2,
+ "tiledversion":"1.5.0",
+ "tileheight":32,
  "tiles":[
         {
          "id":0,
@@ -54,8 +46,15 @@
                  "value":"example_objective"
                 }],
          "type":"light-green"
+        }, 
+        {
+         "id":2,
+         "image":"..\/objects\/chiara\/icon.gif",
+         "imageheight":32,
+         "imagewidth":32,
+         "type":"chiara"
         }],
- "tilewidth":24,
+ "tilewidth":32,
  "type":"tileset",
- "version":1.4
+ "version":1.5
 }

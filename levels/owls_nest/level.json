@@ -13,7 +13,7 @@
     }
   },
   "flavorTextOverrides": {
-    "bookshelf": "There's nothing like a good book."
+    "movement_pylon": "<i>These security pylons won't disengage until I <em>flip all three switches</em> in this room.<br/><br/> I should approach each switch and press the <em>spacebar</em>.</i>"
   },
   "objectives": ["example_objective", "example_objective2"]
 }
