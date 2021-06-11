@@ -1,3 +1,10 @@
+function onPlayerDidInteract(self, event, world) {
+  if (event.target.type === 'chiara') {
+    console.log(world);
+    world.startConversation('chiara', 'Dr. Chiara')
+  }
+}
+
 module.exports = {
   animations: {
     objectiveNotCompleted: {
@@ -14,7 +21,7 @@ module.exports = {
     },
   },
   spriteSheets: {
-    chiara: {
+    OWLN_chiara: {
       fileName: 'spritesheet_chiara.png',
       frameDimensions: {
         width: 32,
@@ -25,8 +32,11 @@ module.exports = {
   properties: {
     sprite: {
       defaultFrameIndex: 0,
-      spriteSheet: 'chiara',
+      spriteSheet: 'OWLN_chiara',
       layers: [],
     },
   },
+  events: {
+    onPlayerDidInteract,
+  }
 };

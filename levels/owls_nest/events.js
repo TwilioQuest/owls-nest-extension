@@ -4,11 +4,7 @@ const handleMovementTutorial = require('./events/handleMovementTutorial');
 const STATE_KEY = 'com.twilioquest.owls_nest';
 const DEFAULT_STATE = {
   // State for the movement tutorial
-  movementSwitches: {
-    one: false,
-    two: false,
-    three: false
-  }
+  movementSwitch: false
 };
 
 module.exports = function(event, world) {

@@ -13,7 +13,8 @@
     }
   },
   "flavorTextOverrides": {
-    "movement_pylon": "<i>These security pylons won't disengage until I <em>flip all three switches</em> in this room.<br/><br/> I should approach each switch and press the <em>spacebar</em>.</i>"
+    "security_pylon": "These security pylons won't budge until I <em>flip the blue switch on the left</em>.<br/><br/>To interact with an object like the switch, I need to walk over to it and press the <em>spacebar</em>.",
+    "under_construction": "This part of the base looks like it is still under construction."
   },
   "objectives": ["example_objective", "example_objective2"]
 }
