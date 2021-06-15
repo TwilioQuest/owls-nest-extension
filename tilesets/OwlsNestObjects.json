@@ -49,7 +49,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -76,29 +75,6 @@
          "image":"..\/objects\/hacking_tool\/icon.png",
          "imageheight":72,
          "imagewidth":24,
-         "objectgroup":
-            {
-             "draworder":"index",
-             "id":2,
-             "name":"",
-             "objects":[
-                    {
-                     "height":8,
-                     "id":1,
-                     "name":"",
-                     "rotation":0,
-                     "type":"",
-                     "visible":true,
-                     "width":20,
-                     "x":2,
-                     "y":13
-                    }],
-             "opacity":1,
-             "type":"objectgroup",
-             "visible":true,
-             "x":0,
-             "y":0
-            },
          "type":"hacking_tool"
         }, 
         {
@@ -113,15 +89,15 @@
              "name":"",
              "objects":[
                     {
-                     "height":10,
+                     "height":6,
                      "id":1,
                      "name":"",
                      "rotation":0,
                      "type":"",
                      "visible":true,
-                     "width":32,
-                     "x":21,
-                     "y":34
+                     "width":24,
+                     "x":24,
+                     "y":35
                     }],
              "opacity":1,
              "type":"objectgroup",

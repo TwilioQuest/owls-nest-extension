@@ -1,3 +1,7 @@
+function onMapDidLoad(self, event, world) {
+  self.sprite.body.enable = false;
+}
+
 module.exports = {
   animations: {},
   spriteSheets: {
@@ -15,5 +19,8 @@ module.exports = {
       spriteSheet: 'OWLN_hacking_tool',
       layers: [],
     },
+  },
+  events: {
+    onMapDidLoad
   }
 };
