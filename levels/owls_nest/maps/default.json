@@ -265,18 +265,6 @@
                  "y":852
                 }, 
                 {
-                 "gid":10014,
-                 "height":32,
-                 "id":176,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":440,
-                 "y":955
-                }, 
-                {
                  "gid":5937,
                  "height":24,
                  "id":193,
@@ -341,6 +329,29 @@
                  "width":24,
                  "x":84,
                  "y":348
+                }, 
+                {
+                 "gid":10021,
+                 "height":32,
+                 "id":206,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"conversation",
+                         "type":"string",
+                         "value":"chiaraDefault"
+                        }, 
+                        {
+                         "name":"conversationAvatar",
+                         "type":"string",
+                         "value":"chiaraNeutral.png"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":353,
+                 "y":946
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -416,7 +427,7 @@
          "y":0
         }],
  "nextlayerid":49,
- "nextobjectid":205,
+ "nextobjectid":219,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.5.0",
@@ -442,6 +453,10 @@
         {
          "firstgid":10014,
          "source":"..\/..\/..\/tilesets\/OwlsNestObjects.json"
+        }, 
+        {
+         "firstgid":10021,
+         "source":"..\/..\/..\/..\/.bundled\/tilesets\/TwilioQuestNPCs.json"
         }],
  "tilewidth":24,
  "type":"map",

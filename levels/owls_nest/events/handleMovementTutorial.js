@@ -6,7 +6,13 @@
  * @param {object} worldState - current game world state (mutate to change)
  */
 function handleMovementTutorial(event, world, worldState) {
-  console.log(event);
+  if (event.name === 'levelDidLoad') {
+    // Trigger Chiara conversation, if required
+    if (!worldState.chiaraInitialGreeting) {
+      world.startConversation('chiaraDefault', 'chiaraNeutral.png');
+    }
+  }
+  
   // Handle interaction
   if (
     event.name === 'playerDidInteract' &&
