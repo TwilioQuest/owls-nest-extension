@@ -8,7 +8,7 @@
  "margin":0,
  "name":"OwlsNestObjects",
  "spacing":0,
- "tilecount":4,
+ "tilecount":3,
  "tiledversion":"1.5.0",
  "tileheight":72,
  "tiles":[
@@ -42,42 +42,6 @@
          "type":"chiara"
         }, 
         {
-         "id":4,
-         "image":"..\/objects\/item_pedestal\/pedestal.png",
-         "imageheight":32,
-         "imagewidth":32,
-         "objectgroup":
-            {
-             "draworder":"index",
-             "name":"",
-             "objects":[
-                    {
-                     "height":24,
-                     "id":1,
-                     "name":"",
-                     "rotation":0,
-                     "type":"",
-                     "visible":true,
-                     "width":24,
-                     "x":4,
-                     "y":8
-                    }],
-             "opacity":1,
-             "type":"objectgroup",
-             "visible":true,
-             "x":0,
-             "y":0
-            },
-         "type":"item_pedestal"
-        }, 
-        {
-         "id":5,
-         "image":"..\/objects\/hacking_tool\/icon.png",
-         "imageheight":72,
-         "imagewidth":24,
-         "type":"hacking_tool"
-        }, 
-        {
          "id":6,
          "image":"..\/objects\/margaret_tinkering\/icon.png",
          "imageheight":72,
@@ -89,7 +53,7 @@
              "name":"",
              "objects":[
                     {
-                     "height":6,
+                     "height":37,
                      "id":1,
                      "name":"",
                      "rotation":0,
@@ -106,6 +70,36 @@
              "y":0
             },
          "type":"margaret_tinkering"
+        }, 
+        {
+         "id":7,
+         "image":"..\/objects\/hacking_tool\/icon.png",
+         "imageheight":48,
+         "imagewidth":24,
+         "objectgroup":
+            {
+             "draworder":"index",
+             "id":2,
+             "name":"",
+             "objects":[
+                    {
+                     "height":24,
+                     "id":1,
+                     "name":"",
+                     "rotation":0,
+                     "type":"",
+                     "visible":true,
+                     "width":24,
+                     "x":0,
+                     "y":24
+                    }],
+             "opacity":1,
+             "type":"objectgroup",
+             "visible":true,
+             "x":0,
+             "y":0
+            },
+         "type":"hacking_tool"
         }],
  "tilewidth":72,
  "type":"tileset",

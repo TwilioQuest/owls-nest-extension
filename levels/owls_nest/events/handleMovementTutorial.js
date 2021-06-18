@@ -9,7 +9,7 @@ function handleMovementTutorial(event, world, worldState) {
   if (event.name === 'levelDidLoad') {
     // Trigger Chiara conversation, if required
     if (!worldState.chiaraInitialGreeting) {
-      world.startConversation('chiaraDefault', 'chiaraNeutral.png');
+      world.startConversation('chiaraDefault', 'chiaraNeutral.png', 500);
     }
   }
   

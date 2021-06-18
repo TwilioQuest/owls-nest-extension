@@ -1,0 +1,16 @@
+{
+  "title": "Hacking Interface Basics",
+  "description": "Using the <strong>hacking tool</strong>, you can hack bypass obstacles like this laser barrier. Find the hacking tool <strong>on the pedestal in this room</strong>!",
+  "validation_fields": [
+    {
+      "name": "passcode",
+      "type": "text",
+      "placeholder": "ENTER PASSCODE HERE",
+      "label": "Once you obtain the hacking tool, you will be able to find a secret passcode in the 'Objective' section of the interface. Enter that passcode here:"
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": ["operator_armor_legs", "operator_armor_boots"]
+  }
+}

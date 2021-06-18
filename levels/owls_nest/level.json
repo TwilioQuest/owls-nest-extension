@@ -16,5 +16,7 @@
     "security_pylon": "These security pylons won't budge until I <em>flip the blue switch on the left</em>.<br/><br/>To interact with an object like the switch, I need to walk over to it and press the <em>spacebar</em>.",
     "under_construction": "This part of the base looks like it is still under construction."
   },
-  "objectives": ["example_objective", "example_objective2"]
+  "objectives": [
+    "hacking_tool_objective", "fire_extinguisher_objective"
+  ]
 }
