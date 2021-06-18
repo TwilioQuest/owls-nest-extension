@@ -8,39 +8,10 @@
  "margin":0,
  "name":"OwlsNestObjects",
  "spacing":0,
- "tilecount":3,
+ "tilecount":2,
  "tiledversion":"1.5.0",
  "tileheight":72,
  "tiles":[
-        {
-         "id":0,
-         "image":"..\/objects\/chiara\/icon.gif",
-         "imageheight":32,
-         "imagewidth":32,
-         "objectgroup":
-            {
-             "draworder":"index",
-             "name":"",
-             "objects":[
-                    {
-                     "height":11,
-                     "id":7,
-                     "name":"",
-                     "rotation":0,
-                     "type":"",
-                     "visible":true,
-                     "width":17,
-                     "x":7,
-                     "y":21
-                    }],
-             "opacity":1,
-             "type":"objectgroup",
-             "visible":true,
-             "x":0,
-             "y":0
-            },
-         "type":"chiara"
-        }, 
         {
          "id":6,
          "image":"..\/objects\/margaret_tinkering\/icon.png",
@@ -49,7 +20,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
@@ -79,7 +49,6 @@
          "objectgroup":
             {
              "draworder":"index",
-             "id":2,
              "name":"",
              "objects":[
                     {
