@@ -5,9 +5,10 @@
  * @param {WorldAPI} world - TQ World API
  * @param {object} worldState - current game world state (mutate to change)
  */
-function handleHackingTutorial(event, world, worldState) {
+ function handleHackingTutorial(event, world, worldState) {
   if (
     event.name === 'triggerAreaWasEntered' &&
+    event.target.key === 'margaretDialogTrigger' &&
     !worldState.margaretInitialGreeting
   ) {
     // Trigger Margaret conversation, if required

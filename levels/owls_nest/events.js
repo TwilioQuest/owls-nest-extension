@@ -1,5 +1,6 @@
 const handleMovementTutorial = require('./events/handleMovementTutorial');
 const handleHackingTutorial = require('./events/handleHackingTutorial');
+const handleFredric = require('./events/handleFredric');
 
 // Set up level state
 const STATE_KEY = 'com.twilioquest.owls_nest';
@@ -23,6 +24,9 @@ module.exports = function(event, world) {
 
   // Process events for the hacking tool sequence
   handleHackingTutorial(event, world, worldState);
+
+  // Set up the Fredric ambush
+  handleFredric(event, world, worldState);
 
   // Persist world state across event handler invocations
   world.setState(STATE_KEY, worldState);

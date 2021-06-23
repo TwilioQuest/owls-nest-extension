@@ -5,6 +5,10 @@ module.exports = {
     idle: {
       frames: [0, 1, 2, 1, 2, 1],
       frameRate: 2
+    },
+    danger: {
+      frames: [3, 4, 5],
+      frameRate: 3
     }
   },
   spriteSheets: {
@@ -25,10 +29,20 @@ module.exports = {
   },
   events: {
     onMapDidLoad: (self, event, world) => {
-      self.playAnimation('idle', true);
+      const levelState = world.getState(STATE_KEY);
+      if (levelState.fredricThreatReceived) {
+        self.playAnimation('danger', true);
+      } else {
+        self.playAnimation('idle', true);
+      }
     },
-    onPlayerDidInteract: (self, event, world) => {
-      
+    onConversationDidEnd: (self, event, world) => {
+      const levelState = world.getState(STATE_KEY);
+      if (levelState.fredricThreatReceived) {
+        self.playAnimation('danger', true);
+      } else {
+        self.playAnimation('idle', true);
+      }
     },
   }
 };

@@ -1,0 +1,119 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin relieved
+  response#relieved.
+    You seemed to be relieved I made it into The Cloud alive...
+
+mixin get_started
+  if worldState.movementSwitch
+    response#understood.
+      I've cleared the security pylons - what should I do next?
+  else
+    response#get_started.
+      I was asked to report here for a critical mission - should we get started?
+
+conversation(display_name="Fredric")
+  case lastResponse
+    when "relieved"
+      statement#relieved
+      responses
+        response#fish.
+          ...fish?
+
+    when "fish"
+      statement#tell_right_away
+      responses
+        +get_started
+
+    when "who_are_you"
+      statement#chiara
+      responses
+        +relieved
+        +get_started
+
+    when "get_started"
+      statement#get_started
+      responses
+        response#letsgo.
+          Fair enough - what do you need me to do?
+    
+    when "letsgo"
+      statement#test_motor
+      responses
+        response#understood.
+          Understood - after I flip the switch, what next?
+
+    when "understood"
+      statement#keep_moving
+      responses
+        +relieved
+
+    default
+      statement#greeting
+      responses
+        response#what_fog_owl.
+          What have you done to the Fog Owl?
+        response#who_are_you.
+          ...Cedric, is that you?
+
+  statements
+    statement#greeting
+      text.
+        Greetings, TwilioQuest losers! I bear tidings of doom from the 
+        invincible Legacy Systems. I'm afraid your precious Fog Owl will never 
+        leave this station.
+
+    statement#follow_up_greeting
+      text.
+        Are you feeling okay? Is there anything I can help with?
+    
+    statement#chiara
+      text.
+        Oh, right, sure, of course. <span class="highlight">Chiara Massironi</span>, 
+        chief medical officer with the TwilioQuest program. I actually designed 
+        the new neural interface through which you are experiencing The Cloud. <br/><br/>
+        It would be a pleasure to meet you in any event, but today it is a
+        particular thrill - I wasn't quite sure this version of the interface 
+        was going to work!
+    
+    statement#relieved
+      text.
+        Did I? Oh, no, I assure you, the neural interface is completely safe.<br/><br/>
+        On an unrelated note - you don't happen to smell fish, do you?
+
+    statement#tell_right_away
+      text.
+        I know, what a silly question. Why would you? There's no fish around here!<br/><br/>
+        But if you do start smelling fish, you need to tell me RIGHT AWAY, do 
+        you understand? Good? Good.
+
+    statement#keep_moving
+      text.
+        Proceed through the medical bay door into the tech lab. Margaret will 
+        want to speak with you next - she'll equip you with a
+        <span class="highlight">critical tool</span> you'll need while exploring
+        The Cloud. Good luck out there!
+
+    statement#test_motor
+      text.
+        I'll need you to use <span class="highlight">basic movement and interaction controls</span>
+        to activate a switch near the exit to the medical bay. If you can do so,
+        we can be confident that your neural interface is configured correctly.<br/><br/>
+        You can move your avatar using the <span class="highlight">arrow keys, or the W, A, S, and D keys</span>.
+        You can interact with objects - the switch, for instance - 
+        using the <span class="highlight">spacebar</span>.
+
+    statement#get_started
+      text.
+        Indeed. You've been selected from thousands of Operators to take command
+        of a prototype Cloud Exploration Vessel we call the 
+        <span class="highlight">Fog Owl</span>.
+        The Owl represents years research and billions of dollars in cutting 
+        edge technology. More importantly, it could finally let us stay one step 
+        ahead of the Legacy Systems.<br/><br/> Before we worry about any 
+        of that, though, we'll need to check your basic motor functions and ensure
+        you are fit for duty.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);
