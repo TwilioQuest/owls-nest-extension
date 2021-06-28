@@ -17,9 +17,11 @@ function handleFredric(event, world, worldState) {
 
   // Show fuel line fires, if required
   if (!worldState.fredricThreatReceived) {
-    world.hideEntities('fuel_line_fire');
+    world.hideEntities('fuel_line_fire_right');
+    world.hideEntities('fuel_line_fire_left');
   } else {
-    world.showEntities('fuel_line_fire');
+    world.showEntities('fuel_line_fire_right');
+    world.showEntities('fuel_line_fire_left');
   }
 }
 
