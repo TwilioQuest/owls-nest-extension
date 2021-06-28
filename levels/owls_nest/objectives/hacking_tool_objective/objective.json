@@ -10,7 +10,6 @@
     }
   ],
   "rewards": {
-    "xp": 100,
-    "items": ["operator_armor_legs", "operator_armor_boots"]
+    "xp": 100
   }
 }

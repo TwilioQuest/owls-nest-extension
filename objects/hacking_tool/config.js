@@ -25,7 +25,7 @@ module.exports = {
   },
   events: {
     onMapDidLoad: (self, event, world) => {
-      const levelState = world.getState(STATE_KEY);
+      const levelState = world.getState(STATE_KEY) || {};
       if (levelState.hackingToolAcquired) {
         self.destroy();
       } else {
@@ -34,7 +34,7 @@ module.exports = {
     },
     onPlayerDidInteract: (self, event, world) => {
       if (event.target.key === 'hacking_device') {
-        const levelState = world.getState(STATE_KEY);
+        const levelState = world.getState(STATE_KEY) || {};
         levelState.hackingToolAcquired = true;
         world.setState(STATE_KEY, levelState);
 

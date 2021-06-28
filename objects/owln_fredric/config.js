@@ -10,7 +10,7 @@ function onMapDidLoad(self) {
 }
 
 function onTriggerAreaWasEntered(self, event, world) {
-  const worldState = world.getState(STATE_KEY);
+  const worldState = world.getState(STATE_KEY) || {};
   
   // Only trigger on the approproate prompt and if the threat has not yet
   // been received
@@ -39,8 +39,6 @@ function onTriggerAreaWasEntered(self, event, world) {
 }
 
 function onConversationDidEnd(self, event, world) {
-  const worldState = world.getState(STATE_KEY);
-
   if (!event.npc && event.npc.name !== 'fredricDefault') {
     return;
   }

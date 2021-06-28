@@ -29,7 +29,7 @@ module.exports = {
   },
   events: {
     onMapDidLoad: (self, event, world) => {
-      const levelState = world.getState(STATE_KEY);
+      const levelState = world.getState(STATE_KEY) || {};
       if (levelState.fredricThreatReceived) {
         self.playAnimation('danger', true);
       } else {
@@ -37,7 +37,7 @@ module.exports = {
       }
     },
     onConversationDidEnd: (self, event, world) => {
-      const levelState = world.getState(STATE_KEY);
+      const levelState = world.getState(STATE_KEY) || {};
       if (levelState.fredricThreatReceived) {
         self.playAnimation('danger', true);
       } else {

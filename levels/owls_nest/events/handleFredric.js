@@ -6,7 +6,21 @@
  * @param {object} worldState - current game world state (mutate to change)
  */
 function handleFredric(event, world, worldState) {
-  
+  if (
+    event.name === 'triggerAreaWasEntered' &&
+    event.target.key === 'kevinCedricDialogTrigger' &&
+    !worldState.kevinCedricInitialGreeting
+  ) {
+    // Trigger Kevin/Cedric conversation, if required
+    world.startConversation('kevinCedricDefault', 'cedricNeutral.png');
+  }
+
+  // Show fuel line fires, if required
+  if (!worldState.fredricThreatReceived) {
+    world.hideEntities('fuel_line_fire');
+  } else {
+    world.showEntities('fuel_line_fire');
+  }
 }
 
 module.exports = handleFredric;
