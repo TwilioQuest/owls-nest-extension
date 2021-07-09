@@ -500,7 +500,7 @@
                  "y":841
                 }, 
                 {
-                 "height":5,
+                 "height":32,
                  "id":239,
                  "name":"fredricDialogTrigger",
                  "properties":[
@@ -514,7 +514,7 @@
                  "visible":true,
                  "width":40,
                  "x":673,
-                 "y":528
+                 "y":514
                 }, 
                 {
                  "height":96,
@@ -546,7 +546,7 @@
                  "rotation":0,
                  "type":"triggerArea",
                  "visible":true,
-                 "width":6,
+                 "width":27,
                  "x":714,
                  "y":373
                 }, 

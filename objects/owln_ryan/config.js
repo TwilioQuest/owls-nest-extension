@@ -1,5 +1,14 @@
 const STATE_KEY = 'com.twilioquest.owls_nest';
 
+function toggleAnimations(self, event, world) {
+  const levelState = world.getState(STATE_KEY) || {};
+  if (levelState.fredricThreatReceived) {
+    self.playAnimation('worried', true);
+  } else {
+    self.playAnimation('idle', true);
+  }
+}
+
 module.exports = {
   animations: {
     idle: {
@@ -35,6 +44,10 @@ module.exports = {
         0, 1, 2, 3, 4, 5, // wipe sweat
       ],
       frameRate: 6
+    },
+    worried: {
+      frames: Array.from({ length: 32 }, (_, i) => i + 88),
+      frameRate: 8
     }
   },
   spriteSheets: {
@@ -54,11 +67,13 @@ module.exports = {
     },
   },
   events: {
-    onMapDidLoad: (self, event, world) => {
-      self.playAnimation('idle', true);
-    },
+    onMapDidLoad: toggleAnimations,
     onPlayerDidInteract: (self, event, world) => {
-      
+      if (
+        event.target.type === 'owln_ryan'
+      ) {
+        world.startConversation('ryanDefault', 'ryanNeutral.png');
+      }
     },
   }
 };

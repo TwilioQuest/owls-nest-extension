@@ -1,6 +1,8 @@
 {
   "title": "Owl's Nest",
   "description": "Top secret research facility used for strategic R&D projects in the TwilioQuest Program. Birthplace of Cedric and the CEV 'Fog Owl' prototype.",
+  "defaultGoal": "Take command of a prototype Cloud Exploration Vessel. Speak with TwilioQuest scientists for help and further information.",
+  "disableFogOwlButton": true,
   "mission_icon": "mission_icon.png",
   "is_mission": true,
   "priority": 1,

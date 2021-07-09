@@ -28,6 +28,8 @@ module.exports = function(event, world) {
   // Set up the Fredric ambush
   handleFredric(event, world, worldState);
 
+  //world.setCurrentGoal('Seymour Butts!');
+
   // Persist world state across event handler invocations
   world.setState(STATE_KEY, worldState);
 };
