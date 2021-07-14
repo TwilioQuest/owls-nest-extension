@@ -1,6 +1,7 @@
 const handleMovementTutorial = require('./events/handleMovementTutorial');
 const handleHackingTutorial = require('./events/handleHackingTutorial');
 const handleFredric = require('./events/handleFredric');
+const updateQuestStatus = require('./events/updateQuestStatus');
 
 // Set up level state
 const STATE_KEY = 'com.twilioquest.owls_nest';
@@ -28,7 +29,8 @@ module.exports = function(event, world) {
   // Set up the Fredric ambush
   handleFredric(event, world, worldState);
 
-  //world.setCurrentGoal('Seymour Butts!');
+  // Update current quest status text if needed
+  updateQuestStatus(event, world, worldState);
 
   // Persist world state across event handler invocations
   world.setState(STATE_KEY, worldState);

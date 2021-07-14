@@ -3,8 +3,12 @@ const STATE_KEY = 'com.twilioquest.owls_nest';
 module.exports = {
   animations: {
     idle: {
-      frames: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      frames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
       frameRate: 6
+    },
+    empty: {
+      frames: [10],
+      frameRate: 1
     }
   },
   spriteSheets: {
@@ -27,17 +31,19 @@ module.exports = {
     onMapDidLoad: (self, event, world) => {
       const levelState = world.getState(STATE_KEY) || {};
       if (levelState.hackingToolAcquired) {
-        self.destroy();
+        self.playAnimation('empty', true);
+        self.interactable = false;
       } else {
         self.playAnimation('idle', true);
       }
     },
     onPlayerDidInteract: (self, event, world) => {
-      if (event.target.key === 'hacking_device') {
-        const levelState = world.getState(STATE_KEY) || {};
-        levelState.hackingToolAcquired = true;
-        world.setState(STATE_KEY, levelState);
+      const levelState = world.getState(STATE_KEY) || {};
 
+      if (
+        event.target.key === 'hacking_device' &&
+        !levelState.hackingToolAcquired
+      ) {
         world.showNotification(`
           <i>With this hacking tool, I should be able to <span class="highlight">
           hack the terminal</span> controlling the laser barrier in this room!</i>
@@ -46,7 +52,9 @@ module.exports = {
           spacebar</span> to bring up the hacking interface).
         `);
 
-        self.destroy();
+        levelState.hackingToolAcquired = true;
+        self.playAnimation('empty', true);
+        self.interactable = false;
       }
     },
   }

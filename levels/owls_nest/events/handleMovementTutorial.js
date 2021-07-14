@@ -25,6 +25,7 @@ function handleMovementTutorial(event, world, worldState) {
   if (worldState.movementSwitch) {
     world.destroyEntities('medbay_switch');
     world.destroyEntities('security_pylon');
+    world.hideEntities('floating_arrow_switch');
   }
 }
 

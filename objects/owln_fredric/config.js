@@ -9,7 +9,7 @@ function onMapDidLoad(self) {
   self.sprite.tint = 0x059142;
 }
 
-function onTriggerAreaWasEntered(self, event, world) {
+async function onTriggerAreaWasEntered(self, event, world) {
   const worldState = world.getState(STATE_KEY) || {};
   
   // Only trigger on the approproate prompt and if the threat has not yet
@@ -23,34 +23,31 @@ function onTriggerAreaWasEntered(self, event, world) {
   
   // Temporarily disable player movement and reveal Fredric!
   world.disablePlayerMovement();
-  world.screenShake(10);
+  await world.tweenCameraToPosition({
+    x: 696,
+    y: 504,
+  });
   world.__internals.level.game.add.tween(self.sprite).to({
     alpha: 0.8,
     tint: 0xffffff
   }, 2500, 'Linear', true);
-
-  // Re-enable movement and register that threat was received
-  setTimeout(() => {
-    world.startConversation('fredricDefault', 'fredricNeutral.png');
-    worldState.fredricThreatReceived = true;
-  }, 5000);
+  await world.wait(5000);
+  world.startConversation('fredricDefault', 'fredricNeutral.png');
+  worldState.fredricThreatReceived = true;
 
   world.setState(STATE_KEY, worldState);
 }
 
-function onConversationDidEnd(self, event, world) {
-  if (!event.npc && event.npc.name !== 'fredricDefault') {
-    return;
-  }
-
-  world.__internals.level.game.add.tween(self.sprite).to({
-    alpha: 0,
-    tint: 0x059142
-  }, 2500, 'Linear', true);
-
-  setTimeout(() => {
+async function onConversationDidEnd(self, event, world) {
+  if (event.npc && event.npc.conversation === 'fredricDefault') {
+    world.__internals.level.game.add.tween(self.sprite).to({
+      alpha: 0,
+      tint: 0x059142
+    }, 2500, 'Linear', true);
+    await world.wait(3000);
+    await world.tweenCameraToPlayer();
     world.enablePlayerMovement();
-  }, 3000);
+  }
 }
 
 // Export object configuration

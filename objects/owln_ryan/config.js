@@ -9,6 +9,54 @@ function toggleAnimations(self, event, world) {
   }
 }
 
+async function onTriggerAreaWasEntered(self, event, world) {
+  const worldState = world.getState(STATE_KEY) || {};
+  
+  // Only trigger on the approproate prompt and if the threat has not yet
+  // been received
+  if (
+    event.target.key !== 'ryanDialogTrigger' ||
+    worldState.ryanInitialGreeting
+  ) {
+    return;
+  }
+  
+  // Temporarily disable player movement and reveal Fredric!
+  world.disablePlayerMovement();
+  self.playAnimation('worried', true);
+  await world.tweenCameraToPosition({
+    x: 404,
+    y: 743,
+  });
+  await world.wait(1000);
+  world.startConversation('ryanDefault', 'ryanNeutral.png');
+  worldState.ryanInitialGreeting = true;
+  self.setState({
+    cameraMoved: true
+  });
+
+  world.setState(STATE_KEY, worldState);
+}
+
+async function onConversationDidEnd(self, event, world) {
+  if (
+    event.npc && event.npc.conversation === 'ryanDefault' &&
+    self.state.cameraMoved
+  ) {
+    await world.wait(1000);
+    await world.tweenCameraToPosition({
+      x: 96,
+      y: 384,
+    });
+    await world.wait(1000);
+    await world.tweenCameraToPlayer();
+    world.enablePlayerMovement();
+    self.setState({
+      cameraMoved: false
+    });
+  }
+}
+
 module.exports = {
   animations: {
     idle: {
@@ -75,5 +123,7 @@ module.exports = {
         world.startConversation('ryanDefault', 'ryanNeutral.png');
       }
     },
+    onTriggerAreaWasEntered,
+    onConversationDidEnd,
   }
 };

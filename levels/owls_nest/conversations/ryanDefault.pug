@@ -16,7 +16,7 @@ mixin get_started
     response#get_started.
       I understand you have a tool that might help me with the mission?
 
-conversation(display_name="Margaret")
+conversation(display_name="Ryan")
   case lastResponse
     when "break_stuff"
       statement#break_stuff
@@ -65,12 +65,12 @@ conversation(display_name="Margaret")
           Could you remind me who you are, and what you do here?
 
     default
-      if !worldState.margaretInitialGreeting
-        - worldState.margaretInitialGreeting = true;
+      if !worldState.ryanInitialGreeting
+        - worldState.ryanInitialGreeting = true;
         statement#default
         responses
           response#who_are_you.
-            Sweet! Have we met yet?
+            Hey over there!
           +get_started
 
       else
