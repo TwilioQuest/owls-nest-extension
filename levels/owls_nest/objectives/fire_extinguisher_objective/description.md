@@ -1,21 +1,36 @@
-# Example Objective
+# Practicing Code Safety
 
 <div class="aside">
 <h3>To-Do List</h3>
 <ul>
-  <li>It's good to keep high level tasks here.</li>
-  <li>Let players know when to click <em>HACK</em>.</li>
+  <li>Read the safety tips in this brief safety tutorial.</li>
+  <li>Answer the questions on the right-hand side of the Hack Interface.</li>
+  <li>When you have done so, click the <em>HACK</em> button.</li>
 </ul>
 </div>
 
-Give players a little bit of information about what they need to do to hack past this objective. If you find yourself writing more than a few short paragraphs of text, it's likely your objective is too big!
+The challenges to come in TwilioQuest will guide you through the process of downloading software development tools, and executing the code you write on your computer. Exciting, right?!
 
-## You can make sub headers with more information
+It \*is\* very exciting, but there are a few safety precautions you should be aware of when getting started in software development. Once you have read through the safety tips below, answer the questions on the right, and click *HACK*. You'll be all set for TwilioQuest, and to save Ryan with the fire extinguisher!
 
-Some times you wan to talk about additional concepts beyond the high level goal that might help players accomplish the high level goal.
+## Know Before You Code
 
-```js
-const areCodeSamplesVeryHelpful = true;
-```
+<details>
+<summary>Be careful what you download and install</summary>
 
-Describe the final values for your player one last time. Then ask them to click the _HACK_ button.
+Software development tools and third party software libraries (you'll learn about those later) have extensive access to data that may be on your computer, or that you access through a web browser. Be sure that you only download and install software from trusted sources!
+</details>
+
+<details>
+<summary>Copy and paste with care</summary>
+
+All developers copy and paste code samples they find on the Internet, but this is another area where you should exercise caution. If you don't know what a particular command or piece of code does, find a trusted mentor or teacher to ask more questions. When you execute code, it can usually do anything you can do as a user of the computer (like access your personal files and data).
+</details>
+
+<details>
+<summary>Look out for sensitive data in your code</summary>
+
+As you progress as a software developer, you and your code will encounter various types of sensitive data. Email addresses, phone numbers, and other details about individuals (yourself or others). Whenever you work with personal data in your code, think about how and where that information is being stored and accessed. Are you storing data in a code file? If so, who has access to that code file? Could it be accidentally shared with others on [GitHub](https://github.com) or other file sharing systems?
+
+Asking yourself these questions when dealing with data will help keep you and your users safe.
+</details>

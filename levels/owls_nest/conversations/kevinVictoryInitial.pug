@@ -1,0 +1,56 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="Kevin")
+  case lastResponse
+    when "how_help"
+      statement#how_help
+      responses
+        response#like_fredric.
+          Is there any chance he'll end up like his... brother?
+        response#will_do.
+          I'm sure Cedric will be a great addition to the crew.
+    
+    when "like_fredric"
+      statement#like_fredric
+      responses
+        response#will_do.
+          I won't. And I'll keep an eye on Cedric for you.
+
+    when "will_do"
+      statement#will_do
+      responses
+
+    default
+      statement#default
+      responses
+        response#how_help.
+          It's been kind of a big day already, but I'll help if I can.
+
+  statements
+    statement#like_fredric
+      text.
+        I don't think so - he's consistently chosen to look on humanity more 
+        favorably than Fredric did. And if you can, try not to blame Fredric for 
+        his actions. You should blame me instead. <br/><br/>
+        When I was developing the Fredric software, I was always focused on 
+        what was possible - I didn't think about what could happen if the 
+        technology I was building was used in the wrong way. In your career 
+        as a developer, please don't make the same mistake I did.
+    statement#how_help
+      text.
+        Cedric is aboard the Fog Owl right now, and he'd like to accompany you 
+        on your mission. I think he's ready to get out in the world - he'll be a
+        great help to you, I'm sure. Would you keep an eye on him for me?
+    statement#will_do
+      text.
+        I know you won't let us down. Good luck, Operator. We'll see you in 
+        The Cloud!
+    statement#default
+      text.
+        I don't know what to say - you saved the Fog Owl and everyone on this
+        station. We owe you a debt we can never repay.<br/><br/> That's why 
+        it pains me to ask one more favor of you.
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

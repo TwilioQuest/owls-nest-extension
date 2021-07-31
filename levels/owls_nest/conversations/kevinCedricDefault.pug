@@ -1,153 +1,227 @@
 - const STATE_KEY = 'com.twilioquest.owls_nest';
 - const worldState = getState(STATE_KEY);
 
-mixin break_stuff
-  response#break_stuff.
-    Do you make a habit of breaking stuff?
+mixin about_team
+  response#cedric_index.
+    Cedric, I was wondering if I could ask you a few questions?
+  response#kevin_index.
+    Could I ask you something, Kevin?
+
+mixin cedric_questions
+  response#cedric_job.
+    What's your role in the TwilioQuest Program?
+  response#cedric_related_kevin.
+    Do you work closely with Kevin?
+  response#cedric_conversation_index.
+    Actually, I had other questions...
+
+mixin kevin_questions
+  response#kevin_job.
+    What's your role in the TwilioQuest Program?
+  response#kevin_related_cedric.
+    Do you work closely with Cedric?
+  response#kevin_conversation_index.
+    Actually, I had other questions...
 
 mixin get_started
-  if worldState.firstObjectiveHacked
+  if worldState.fredricThreatReceived
     response#get_started.
-      Looks like the hacking tool works as advertised. No more laser barrier.
-  else if worldState.hackingToolAcquired
-    response#get_started.
-      Now that I have the hacking device, what should I do?
+      FREDRIC PLACEHOLDER
   else
-    response#get_started.
-      I understand you have a tool that might help me with the mission?
+    response#kevin_get_started.
+      I'd love to check out the Fog Owl if possible - I can't wait to see what it can do!
 
-conversation(display_name="Margaret")
+- 
+  let speaker = 'Cedric';
+  if (
+    (
+      worldState.kevinCedricInitialGreeting && 
+      !worldState.fredricThreatReceived &&
+      !lastResponse
+    ) ||
+    (lastResponse && lastResponse.indexOf('kevin_') === 0)
+  ) {
+    speaker = 'Kevin';
+  }
+conversation(display_name=speaker)
   case lastResponse
-    when "break_stuff"
-      statement#break_stuff
+    when "cedric_index"
+      statement#cedric_index
       responses
-        response#no_harm.
-          Hey, no harm, no foul, amirite?
-        response#what_vcr.
-          What's a VCR?
-
-    when "what_vcr"
-      statement#what_vcr
+        +cedric_questions
+    when "cedric_job"
+      statement#cedric_job
+      responses
+        +cedric_questions
+    when "cedric_related_kevin"
+      statement#cedric_related_kevin
+      responses
+        +cedric_questions
+    when "kevin_index"
+      statement(expression="kevinNeutral.png")#kevin_index
+      responses
+        +kevin_questions
+    when "kevin_job"
+      statement(expression="kevinNeutral.png")#kevin_job
+      responses
+        +kevin_questions
+    when "kevin_related_cedric"
+      statement(expression="kevinNeutral.png")#kevin_related_cedric
+      responses
+        response#kevin_kid_low_pressure.
+          Robotic children - good idea! Can't mess them up too badly, right?
+        +kevin_questions
+    when "kevin_kid_low_pressure"
+      statement(expression="kevinNeutral.png")#kevin_kid_low_pressure
+      responses
+        +kevin_questions
+    when "kevin_get_started"
+      statement(expression="kevinNeutral.png")#kevin_get_started
+      responses
+        response#kevin_next_step.
+          The Owl sounds like quite a ship - is it ready for launch?
+        response#kevin_espresso_machine.
+          The espresso machine was a nice touch.
+    when "kevin_espresso_machine"
+      statement(expression="kevinNeutral.png")#kevin_espresso_machine
+      responses
+        response#kevin_next_step.
+          The Owl sounds like quite a ship - is it ready for launch?
+    when "kevin_next_step"
+      statement(expression="kevinNeutral.png")#kevin_next_step
+      responses
+        +about_team
+    when "cedric_conversation_index"
+      statement#cedric_conversation_index
       responses
         +get_started
-
-    when "no_harm"
-      statement#extra_parts
+        +about_team
+    when "kevin_conversation_index"
+      statement(expression="kevinNeutral.png")#kevin_conversation_index
       responses
         +get_started
+        +about_team
 
-    when "who_are_you"
-      statement#margaret
+    when "kevin_who_are_you"
+      statement(expression="kevinNeutral.png")#kevin_who_are_you
       responses
-        +break_stuff
         +get_started
-
-    when "get_started"
-      statement#get_started
-      responses
-        if worldState.firstObjectiveHacked
-          response#understood.
-            The hacking tool is going to be really useful, thank you! What's our next step?
-        else
-          response#how_hack.
-            How do I use the hacking tool?
-    
-    when "how_hack"
-      statement#how_hack
-      responses
-        response#understood.
-          Find a thing to hack, complete a task, and reap the rewards. Got it.
-
-    when "understood"
-      statement#keep_moving
-      responses
-        response#who_are_you.
-          Could you remind me who you are, and what you do here?
+        +about_team
 
     default
-      if !worldState.kevinCedricInitialGreeting
+      if worldState.fredricThreatReceived
+        statement#no_time
+        responses
+      else if !worldState.kevinCedricInitialGreeting
         - worldState.kevinCedricInitialGreeting = true;
         statement#default
         responses
-          response#who_are_you.
-            Sweet! Have we met yet?
+          response#kevin_who_are_you.
+            I believe I am! Cedric and Kevin, I may presume?
           +get_started
 
       else
-        statement#follow_up_greeting
+        statement(expression="kevinNeutral.png")#follow_up_greeting
         responses
-          response#who_are_you.
-            Could you remind me who you are, and what you do here?
           +get_started
+          +about_team
 
   statements
+    statement#no_time
+      text.
+        Operator. I am erecting new firewalls as quickly as I can, but you must
+        <span class="highlight">retrieve the override codes from Engineer Kubik</span> to
+        abort the Fog Owl's self destruct sequence.<br/><br/>Once you retrieve 
+        the codes, use the control panel near the Fog Owl to save the ship and 
+        the station.
+
+    statement#cedric_index
+      text.
+        Standing by for query input.
+
+    statement#cedric_job
+      text.
+        I am an advanced artificial intelligence, designed to assist Operators on 
+        assignment in The Cloud. When my programming is deemed ready by the
+        TwilioQuest Program, I intend to serve aboard a ship like yours.<br/><br/>
+        I have much to learn about humanity, and I believe direct observation is 
+        required to complete my analysis.
+
+    statement#kevin_who_are_you
+      text.
+        You presume correctly, and we're excited to finally meet you face to face! 
+        Cedric and I have been searching for a long time to find the right leader 
+        to take the <span class="highlight">Fog Owl</span> out on it's first 
+        flight, and we think you've got what it takes. <br/><br/>Ready to get on board and
+        take a look around?
+
+    statement#cedric_related_kevin
+      text.
+        Operator #00000000000 is credited with the vast majority of commits to 
+        my codebase, and has designed much of my training data consumption model 
+        and executive functions. Were I a human, I might regard him as a parent.
+
+    statement#kevin_index
+      text.
+        Yeah, of course. Fire away.
+
+    statement#kevin_job
+      text.
+        I'm the director of the TwilioQuest Program. My job is to recruit Operators 
+        like you, and support them in any way I can.<br/><br/>These days though,
+        I spend most of my time working on Cedric and his higher order processing 
+        functions.
+
+    statement#kevin_related_cedric
+      text.
+        I've worked on Cedric's codebase for years now. In many ways, he's like 
+        a son to me. At his request, I've tried to teach him about the
+        best parts of humanity: kindness, curiosity, courage...<br/><br/>
+        I'd say he's become an even better human than I am! I'm very proud of 
+        his progress, and I think he's ready to serve alongside an Operator.
+
+    statement#kevin_kid_low_pressure
+      text.
+        ...<br/><br/>If only you were right.
+
     statement#default
       text.
-        Ooh, ooh, Operator! Over here! I have something to show you.
+        New Operator detected... Cross-referencing classified personnel database... 
+        You are the <span class="highlight">new commander of the Fog Owl</span>,
+        are you not?
 
     statement#follow_up_greeting
       text.
-        Greetings, fellow human. May I offer wisdom or assistance?
+        Hey there! How can we help?
 
-    statement#how_hack
+    statement#cedric_conversation_index
       text.
-        Walk up to an object you think might be hackable, and press the 
-        <span class="highlight">spacebar</span>. That should bring up the hacking 
-        interface. The hacking interface will present you with some kind of 
-        challenge - you might need to write code, answer some questions... stuff like that.
-        <br/><br/>Complete the challenge as described, and SHAZAM! Whatever was
-        locked before is locked no more.
+        Ask, and I shall endeavor to answer them to the best of my ability.
 
-    statement#get_started
-      if worldState.firstObjectiveHacked
-        text.
-          You used the hacking tool to bring down that laser barrier! 
-          Yaaaaaay! Go you!
-      else if worldState.hackingToolAcquired
-        text.
-          Oh, you grabbed the hacking tool off the pedestal? That's great! 
-          It's for you! For adventure!<br/><br/>
-          You should try it out on the 
-          <span class="highlight">terminal attached to those pesky lasers</span>
-          over there.
-      else 
-        text.
-          You better believe I do. It's that <span class="highlight">hacking tool 
-          sitting on the pedestal over there</span>. With that little wonder, 
-          you'll be able to break all kinds of things - in the name of justice 
-          of course.<br/><br/> You can use the hacking tool to bypass locked doors, 
-          open chests, and notably, to <span class="highlight">shut down laser barriers</span> 
-          like the one in this room.
-    
-    statement#margaret
+    statement#kevin_conversation_index
       text.
-        <span class="highlight">Margaret Staples</span>, and very pleased to make 
-        your acquaintance. I'm an experimental scientist in the TwilioQuest 
-        program, and the inventor of the super-duper-handy hacking tool you'll 
-        use on your adventures. <br/><br/> I have basically the best job ever - 
-        I get to break things, and put them back together again, and no one 
-        seems to mind!
-    
-    statement#break_stuff
-      text.
-        I wouldn't say it's a habit so much as a sacred calling. I lost track of 
-        how many times as a kid I took apart our VCR and put it back together again.
+        Sure - what did you want to talk about?
 
-    statement#what_vcr
+    statement#kevin_espresso_machine
       text.
-        Unsure if I am being trolled, or am just legitimately super old.
-  
-    statement#extra_parts
-      text.
-        I usually had a few extra parts left over, but our VHS tapes of Ghostbusters 
-        still seemed to work. So I guess it was fine?
+        Right? I didn't know if we'd actually use it, but it turns out we do all 
+        the time.
 
-    statement#keep_moving
+    statement#kevin_get_started
       text.
-        With your hackery complete, you'll want to head through the door to meet 
-        <span class="highlight">Cedric and Kevin</span>. After that, I think you're off on your 
-        big adventure aboard the Fog Owl. I'm so proud our little bird is about
-        to leave the nest!
+        We can't wait to see what the Owl can do either! Top of the line packet 
+        transmission drive, advanced location encryption, and an espresso machine!
+        <br/><br/>The Fog Owl is tough, fast, and stealthy. Once you shake it 
+        down and prove that the tech works, we can roll it out to Operators all 
+        across The Cloud.
+
+    statement#kevin_next_step
+      text.
+        Just about. We have a few more calibrations to complete on the starboard
+        TCP ports, but we should have you ready for liftoff inside the hour.<br/><br/>
+        In the meantime, you should <span class="highlight">check out the ship and meet your crew</span>.
+        They're a good bunch - some of our best. Be sure to lean on them when you 
+        need a hand.
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

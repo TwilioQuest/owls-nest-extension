@@ -1,5 +1,14 @@
 const STATE_KEY = 'com.twilioquest.owls_nest';
 
+function toggleAnimation(self, event, world) {
+  const levelState = world.getState(STATE_KEY) || {};
+  if (levelState.fredricThreatReceived && !levelState.missionComplete) {
+    self.playAnimation('danger', true);
+  } else {
+    self.playAnimation('idle', true);
+  }
+}
+
 module.exports = {
   animations: {
     idle: {
@@ -28,21 +37,42 @@ module.exports = {
     },
   },
   events: {
-    onMapDidLoad: (self, event, world) => {
-      const levelState = world.getState(STATE_KEY) || {};
-      if (levelState.fredricThreatReceived) {
-        self.playAnimation('danger', true);
-      } else {
-        self.playAnimation('idle', true);
+    onMapDidLoad: toggleAnimation,
+    onConversationDidEnd: toggleAnimation,
+    onPlayerDidInteract: async (self, event, world) => {
+      if (event.target.type !== 'fog_owl_controls') {
+        return;
       }
-    },
-    onConversationDidEnd: (self, event, world) => {
+
       const levelState = world.getState(STATE_KEY) || {};
-      if (levelState.fredricThreatReceived) {
-        self.playAnimation('danger', true);
+
+      if (levelState.missionComplete) {
+        world.showNotification(`
+          With the self destruct disabled, the Fog Owl shows green across the
+          board. The Owl is ready to fly!
+        `);
+      } else if (levelState.ryanSaved) {
+        world.showNotification(`
+          You hear an automated voice over the PA system:<br/><br/>
+          "Self destruct sequence disabled. Imminent destruction prevented.
+          Have a nice day, and please drive home safely."
+        `);
+        await world.wait(1000);
+        levelState.missionComplete = true;
+        world.setState(STATE_KEY, levelState);
+        window.warp('owls_nest', 'player_entry1', 'victory');
+      } else if (levelState.fredricThreatReceived) {
+        world.showNotification(`
+          The console is completely inoperable. You need to <em>find Ryan
+          and retrieve his access codes</em> to access the console and abort
+          the Fog Owl's self-destruct sequence.
+        `);
       } else {
-        self.playAnimation('idle', true);
+        world.showNotification(`
+          This console controls the Fog Owl's preflight routines. It looks like
+          it's almost ready for launch.
+        `);
       }
-    },
+    }
   }
 };

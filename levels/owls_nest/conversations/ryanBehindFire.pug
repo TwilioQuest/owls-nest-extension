@@ -1,0 +1,41 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="Ryan")
+  case lastResponse
+    when "how_help"
+      statement#how_help
+      responses
+        response#on_it.
+          Don't worry - I'll grab the fire extinguisher.
+    
+    when "on_it"
+      statement#thanks
+      responses
+
+    default
+      statement#oh_no
+      responses
+        response#how_help.
+          Ryan? I'll help you if I can, but I don't know how to get past these 
+          flames.
+
+  statements
+    statement#thanks
+      text.
+        I owe you one! Once you have the fire extinguisher, walk up to the flames 
+        and <span class="highlight">press the spacebar</span>. The fire extinguisher 
+        should deploy automatically. 
+    statement#how_help
+      text.
+        There should be a <span class="highlight">fire extinguisher</span>
+        in the storage room! It will be inside a <span class="highlight">red chest</span>.
+        <br/><br/>With all the station security going haywire, you may need to 
+        <span class="highlight">hack the chest</span> first. Once you get the 
+        fire extinguisher, head back here and put out the flames. Please?
+    statement#oh_no
+      text.
+        Hey! Operator! Little help?
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

@@ -29,7 +29,7 @@ async function onTriggerAreaWasEntered(self, event, world) {
     y: 743,
   });
   await world.wait(1000);
-  world.startConversation('ryanDefault', 'ryanNeutral.png');
+  world.startConversation('ryanBehindFire', 'ryanNeutral.png');
   worldState.ryanInitialGreeting = true;
   self.setState({
     cameraMoved: true
@@ -39,8 +39,14 @@ async function onTriggerAreaWasEntered(self, event, world) {
 }
 
 async function onConversationDidEnd(self, event, world) {
+  const levelState = world.getState(STATE_KEY) || {};
+
+  if (levelState.fredricThreatReceived) {
+    self.playAnimation('worried', true);
+  }
+
   if (
-    event.npc && event.npc.conversation === 'ryanDefault' &&
+    event.npc && event.npc.conversation === 'ryanBehindFire' &&
     self.state.cameraMoved
   ) {
     await world.wait(1000);
@@ -55,6 +61,34 @@ async function onConversationDidEnd(self, event, world) {
       cameraMoved: false
     });
   }
+
+  if (
+    event.npc && event.npc.conversation === 'ryanDefault'
+  ) {
+    world.disablePlayerMovement();
+    await world.wait(500);
+    await world.tweenCameraToPosition({
+      x: 794,
+      y: 500,
+    });
+    await world.wait(1000);
+    await world.tweenCameraToPlayer();
+    world.enablePlayerMovement();
+  }
+}
+
+function onPlayerDidInteract(self, event, world) {
+  const worldState = world.getState(STATE_KEY) || {};
+
+  if (
+    event.target.type === 'owln_ryan'
+  ) {
+    // Once the player interacts with Ryan, they have received the codes
+    worldState.ryanSaved = true;
+    world.startConversation('ryanDefault', 'ryanNeutral.png');
+  }
+  
+  world.setState(STATE_KEY, worldState);
 }
 
 module.exports = {
@@ -116,13 +150,7 @@ module.exports = {
   },
   events: {
     onMapDidLoad: toggleAnimations,
-    onPlayerDidInteract: (self, event, world) => {
-      if (
-        event.target.type === 'owln_ryan'
-      ) {
-        world.startConversation('ryanDefault', 'ryanNeutral.png');
-      }
-    },
+    onPlayerDidInteract,
     onTriggerAreaWasEntered,
     onConversationDidEnd,
   }

@@ -1,6 +1,7 @@
 const handleMovementTutorial = require('./events/handleMovementTutorial');
 const handleHackingTutorial = require('./events/handleHackingTutorial');
 const handleFredric = require('./events/handleFredric');
+const handleOverride = require('./events/handleOverride');
 const updateQuestStatus = require('./events/updateQuestStatus');
 
 // Set up level state
@@ -29,8 +30,29 @@ module.exports = function(event, world) {
   // Set up the Fredric ambush
   handleFredric(event, world, worldState);
 
+  // handle scripting for the code override components of the story
+  handleOverride(event, world, worldState);
+
   // Update current quest status text if needed
   updateQuestStatus(event, world, worldState);
+
+  // Go to victory map if necessary
+  if (
+    event.name === 'mapDidLoad' && 
+    worldState.missionComplete &&
+    event.mapName !== 'victory'
+  ) {
+    window.warp('owls_nest', 'player_entry1', 'victory');
+  }
+
+  // Initiate victory conversation when appropriate
+  if (
+    event.name === 'mapDidLoad' && 
+    worldState.missionComplete &&
+    event.mapName === 'victory'
+  ) {
+    world.startConversation('kevinVictoryInitial', 'kevinNeutral.png', 500);
+  }
 
   // Persist world state across event handler invocations
   world.setState(STATE_KEY, worldState);

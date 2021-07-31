@@ -17,8 +17,28 @@ function updateQuestStatus(event, world, worldState) {
 
   if (worldState.firstObjectiveHacked) {
     description = `
-      Talk to Kevin and Cedric to take command of the Fog Owl!
+      Talk to Kevin and Cedric, then take command of the Fog Owl!
     `;
+  }
+
+  if (worldState.fredricThreatReceived) {
+    description = `
+      Get the self-destruct override codes from Ryan! You'll need a fire 
+      extinguisher.
+    `;
+  }
+
+  if (worldState.ryanSaved) {
+    description = `
+      Use the override codes to abort the Fog Owl's self-destruct sequence!
+    `;
+  }
+
+  if (worldState.missionComplete) {
+    description = `
+      Board the Fog Owl and begin your adventure!
+    `;
+    complete = true;
   }
 
   world.updateQuestStatus(LEVEL, TITLE, description, complete);

@@ -27,6 +27,7 @@ async function onTriggerAreaWasEntered(self, event, world) {
     x: 696,
     y: 504,
   });
+  world.playBackgroundMusic('unsettlingarea_59895b');
   world.__internals.level.game.add.tween(self.sprite).to({
     alpha: 0.8,
     tint: 0xffffff
@@ -47,6 +48,7 @@ async function onConversationDidEnd(self, event, world) {
     await world.wait(3000);
     await world.tweenCameraToPlayer();
     world.enablePlayerMovement();
+    world.startConversation('kevinCedricAfterFredric', 'kevinNeutral.png');
   }
 }
 

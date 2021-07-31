@@ -4,20 +4,18 @@
   "validation_fields": [
     {
       "name": "answer1",
-      "type": "text",
-      "label": "True or False: Cedric is cute."
+      "type": "boolean",
+      "label": "True or False: Software you install on your computer can potentially access your files and personal data."
     },
     {
       "name": "answer2",
-      "type": "textarea",
-      "placeholder": "type your answer here",
-      "label": "What is 2 + 2? Write the numerical response below."
+      "type": "boolean",
+      "label": "True or False: Code samples you copy, paste, and run from the Internet cannot harm your computer."
     },
     {
       "name": "answer3",
-      "type": "date",
-      "placeholder": "",
-      "label": "What's your favorite color?"
+      "type": "boolean",
+      "label": "True or False: It is always safe to keep passwords, emails, and other personal data in code files."
     }
   ],
   "rewards": {
