@@ -13,7 +13,7 @@ module.exports = {
   },
   spriteSheets: {
     OWLN_hacking_tool: {
-      fileName: 'HackingDeviceWithPedestal.png',
+      fileName: 'HackingDevicewithPedestal.png',
       frameDimensions: {
         width: 24,
         height: 48,
