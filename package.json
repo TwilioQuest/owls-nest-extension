@@ -1,11 +1,9 @@
 {
-  "name": "twilioquest-extension",
-  "description": "This is a demo extension for TwilioQuest.",
-  "version": "0.0.1",
+  "name": "owls-nest-extension",
+  "description": "This extension contains the prologue level for TwilioQuest.",
+  "version": "1.0.1",
   "engines": {
-    "twilioquest": "3.1.44"
+    "twilioquest": "3.2.x"
   },
-  "dependencies": {
-    "ramda": "^0.27.1"
-  }
+  "dependencies": {}
 }

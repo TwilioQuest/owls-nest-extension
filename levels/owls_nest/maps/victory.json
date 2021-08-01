@@ -468,7 +468,7 @@
         }, 
         {
          "firstgid":10016,
-         "source":"..\/..\/..\/tilesets\/OwlsNestObjects.json"
+         "source":"..\/..\/..\/..\/.bundled\/tilesets\/OwlsNestObjects.json"
         }, 
         {
          "firstgid":10027,

@@ -57,7 +57,7 @@ module.exports = {
           "Self destruct sequence disabled. Imminent destruction prevented.
           Have a nice day, and please drive home safely."
         `);
-        await world.wait(1000);
+        await world.wait(5000);
         levelState.missionComplete = true;
         world.setState(STATE_KEY, levelState);
         window.warp('owls_nest', 'player_entry1', 'victory');
