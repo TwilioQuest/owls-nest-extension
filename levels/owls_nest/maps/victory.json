@@ -176,7 +176,7 @@
                  "y":764
                 }, 
                 {
-                 "gid":10027,
+                 "gid":11028,
                  "height":32,
                  "id":206,
                  "name":"",
@@ -229,7 +229,7 @@
                  "y":768
                 }, 
                 {
-                 "gid":10024,
+                 "gid":11025,
                  "height":48,
                  "id":230,
                  "name":"",
@@ -247,7 +247,7 @@
                  "y":527
                 }, 
                 {
-                 "gid":10033,
+                 "gid":11034,
                  "height":32,
                  "id":234,
                  "name":"",
@@ -306,7 +306,7 @@
                  "y":756
                 }, 
                 {
-                 "gid":10035,
+                 "gid":11036,
                  "height":32,
                  "id":299,
                  "name":"",
@@ -324,7 +324,7 @@
                  "y":564
                 }, 
                 {
-                 "gid":10038,
+                 "gid":11039,
                  "height":32,
                  "id":300,
                  "name":"",
@@ -381,7 +381,7 @@
                  "y":432
                 }, 
                 {
-                 "gid":10150,
+                 "gid":11151,
                  "height":72,
                  "id":305,
                  "name":"",
@@ -524,19 +524,19 @@
          "source":"..\/..\/..\/..\/.bundled\/tilesets\/TwilioQuestObjects.json"
         }, 
         {
-         "firstgid":10016,
+         "firstgid":11017,
          "source":"..\/..\/..\/..\/.bundled\/tilesets\/OwlsNestObjects.json"
         }, 
         {
-         "firstgid":10027,
+         "firstgid":11028,
          "source":"..\/..\/..\/..\/.bundled\/tilesets\/TwilioQuestNPCs.json"
         }, 
         {
-         "firstgid":10039,
+         "firstgid":11040,
          "source":"..\/..\/..\/..\/.bundled\/tilesets\/FogOwlShip_Entrance.json"
         }, 
         {
-         "firstgid":10135,
+         "firstgid":11136,
          "source":"..\/..\/..\/..\/twilioquest-base\/tilesets\/TwilioQuestObjects.json"
         }],
  "tilewidth":24,
