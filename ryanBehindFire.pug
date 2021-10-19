@@ -1,0 +1,35 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="Ryan")
+  case lastResponse
+    when "how_help"
+      statement#how_help
+      responses
+        response#on_it.
+          心配しないでください、消火器を持っていきます。
+    
+    when "on_it"
+      statement#thanks
+      responses
+
+    default
+      statement#oh_no
+      responses
+        response#how_help.
+          Ryan? できるほど手伝いたいんですが、この炎を乗り越える方法がわからない。
+
+  statements
+    statement#thanks
+      text.
+        任せするよ! 消火器を手に入れたら、炎に近づいて<span class="highlight">スペースキーを押す</span>と消火器が自動的に出てくる
+    statement#how_help
+      text.
+        倉庫の中に<span class="highlight">消火器</span>があるはずです! <span class="highlight">赤いチェスト</span>の中にあるはずです。<br/><br/>セキュリティシステムがおかしくなっているので、先に<span class="highlight">チェストをハックする</span>必要があるかもしれない。消火器を手に入れたら、ここに戻って炎を消してください。
+        
+    statement#oh_no
+      text.
+        オイ！オペレーター！ちょっと手伝ってくださいね？
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

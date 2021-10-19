@@ -1,0 +1,112 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin relieved
+  response#relieved.
+    私が生きてクラウドにたどり着いたことに安心しているようでしたが...
+
+mixin get_started
+  if worldState.movementSwitch
+    response#understood.
+      セキュリティパイロンをクリアしましたが、次は何をすればいいですか？
+  else
+    response#get_started.
+      重要な任務のために、ここで報告するように言われたのですが、始めてもいいですか？
+
+conversation(display_name="Chiara")
+  case lastResponse
+    when "relieved"
+      statement#relieved
+      responses
+        response#fish.
+          ...魚？
+
+    when "fish"
+      statement#tell_right_away
+      responses
+        +get_started
+
+    when "who_are_you"
+      statement#chiara
+      responses
+        +relieved
+        +get_started
+
+    when "get_started"
+      statement#get_started
+      responses
+        response#letsgo.
+          いいよね。何をすればいいのでしょうか？
+    
+    when "letsgo"
+      statement#test_motor
+      responses
+        response#understood.
+          分かった。スイッチを入れたら、次は何？
+
+    when "understood"
+      statement#keep_moving
+      responses
+        +relieved
+
+    default
+      if !worldState.chiaraInitialGreeting
+        - worldState.chiaraInitialGreeting = true;
+        statement#default
+        responses
+          response#who_are_you.
+            確かに代替案よりも良いですね。紹介されていなかったかな？
+          +get_started
+
+      else
+        statement#follow_up_greeting
+        responses
+          response#who_are_you.
+            あなたが誰で、ここで何をしているのか教えてくださいませんか。
+          +get_started
+
+  statements
+    statement#default
+      text.
+        神経インターフェースは安定して... すべての生命徴候は正常なパラメータ内にあります。
+        あなたは、生きていて、ここに来た！それは素晴らしいでしょうか。
+
+    statement#follow_up_greeting
+      text.
+        ヨー!{settings.name}! 大丈夫かな? 何か手伝えることがある？
+    
+    statement#chiara
+      text.
+        あー！はい、もちろんです！ TwilioQuestの最高医療責任者の<span class="highlight">Chiara Massironi</span>と申します。 
+        実は、あなたがクラウドを体験するための新しい神経インターフェースを設計した方が私です。<br/><br/>
+        いつでもお会いできて嬉しいですが、今日は特に嬉しいですね。このインターフェイスのバージョンがうまく機能するかどうかはよくわかりませんでした.
+    
+    statement#relieved
+      text.
+        そうか？いえいえ、この神経インターフェースは全く問題ありません。<br/><br/>
+        ね、関係ないんですけど、たまたま魚の匂いがしませんでしょう？
+
+    statement#tell_right_away
+      text.
+        愚かな質問ですよね。この辺には魚がいないじゃないか.<br/><br/>
+        でも、もし魚の匂いがしてきたら、すぐに教えてくださいね、わかった？
+
+    statement#keep_moving
+      text.
+        医療室のドアを通って技術ラボに進む。Margaretは、クラウドを探索する際に必要となる
+        <span class="highlight">重要なツール</span>を提供してくれます。頑張って!
+
+    statement#test_motor
+      text.
+        <span class="highlight">基本的な動作とインタラクション・コントロール</span>
+        を使って医療室の出口付近にあるスイッチを作動させてほしいのです。それができれば、神経インターフェースが正しく設定されていると言う意味です。<br/><br/>
+       <span class="highlight">矢印キー、W、A、S、Dキー</span>でアバターを動かすことができます。
+        スイッチなどのオブジェクトは、<span class="highlight">スペースバー</span>を使って操作できます。
+
+    statement#get_started
+      text.
+        そうです。あなたは何千人ものオペレーターの中から選ばれ、我々が<span class="highlight">Fog Owl</span>と呼ぶプロトタイプのクラウド探査船の指揮をとることになった。
+        このOwlは、何年にもわたる研究と何十億ドルもの最先端技術の象徴です。さらに重要なことは 我々が最終的に レガシーシステムの一歩先を行くことです。<br/><br/>その心配をする前に基本的な運動機能をチェックする必要がありますあなたが任務に適しているかどうかを確認します。
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

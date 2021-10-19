@@ -1,0 +1,35 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="Kevin")
+  case lastResponse
+    when "how_shut_it_down"
+      statement#how_shut_it_down
+      responses
+        response#on_it.
+          了解。Ryanを追跡して、オーバーライドコードを入手します。
+    
+    when "on_it"
+      statement#not_much_time
+      responses
+
+    default
+      statement#oh_no
+      responses
+        response#how_shut_it_down.
+          何とかして止めることがないん？
+
+  statements
+    statement#not_much_time
+      text.
+        ロックダウンが始まった時、彼はエンジニアリングにいて、ドライブコイルの作業をしていたと思います。さらにひどいことは、<span class="highlight">燃料漏れによる火災でステーションの他の部分から切り離されてしまったようです。</span><br/><br/>Ryanを見つけて、手伝って、<span class="highlight">オーバーライドコードをFog Owlの近くのコンソールに持ってきてください。</span>
+        自爆をできる限り遅らせますが、急がないと。
+    statement#how_shut_it_down
+      text.
+        Cedricはプロセスを遅らせることができますが、それを止める唯一の方法はルートアクセスコードを使ることしかない。霧のフクロウ」のチーフアーキテクトの<span class="highlight">Ryan</span>は,コード付きのハードウェアトークンを持っているはずです。
+    statement#oh_no
+      text.
+        そのFredricが... 見当違いのことをしていたのは知っていましたが、まさかLegacy Systemsと一緒に働くとは思わなかった。どうやったのは分からないんですが、セキュリティ・プロトコルを無効にしてFog Owlの自爆装置を起動させたんだ
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);
