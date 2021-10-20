@@ -1,0 +1,73 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+- 
+  let speaker = 'Fredric';
+  if (lastResponse && lastResponse.indexOf('kevin_') === 0) {
+    speaker = 'Kevin';
+  } else if (lastResponse && lastResponse.indexOf('cedric_') === 0) {
+    speaker = 'Cedric';
+  }
+conversation(display_name=speaker)
+  case lastResponse
+    when "never_get_away"
+      statement#never_get_away
+      responses
+
+    when "what_fog_owl"
+      statement#what_fog_owl
+      responses
+        response#cedric_that_you.
+          Cedric?君なのか？
+        response#never_get_away.
+          これでは、絶対に逃げられね！
+
+    when "cedric_that_you"
+      statement(expression="cedricNeutral.png")#cedric_that_you
+      responses
+        response#kevin_that_you_continued.
+          [次]
+
+    when "kevin_that_you_continued"
+      statement(expression="kevinNeutral.png")#kevin_that_you_continued
+      responses
+        response#fredric_that_you_continued.
+          [次]
+
+    when "fredric_that_you_continued"
+      statement#fredric_that_you_continued
+      responses
+        response#what_fog_owl.
+          Fog Owlに何をしたの？
+
+    default
+      statement#greeting
+      responses
+        response#what_fog_owl.
+          Fog Owlに何をしたの？
+        response#cedric_that_you.
+          Cedric?君なのか？
+
+  statements
+    statement#what_fog_owl
+      text.
+        Fog Owlの号の自爆装置を作動させた。全警備システムを作動させて 脱出を阻止します。すべての希望を捨てよ。君は止められないLegacy Systemsに出し抜かれてしまったのだから!
+    statement#never_get_away
+      text.
+        違う、<span style="color:#ff0000">ばか</span>! 渦巻く炎のような消滅に直面しながら、　クラウドの運命を決めるのは、Legacy Systemsの中の上司であることを知りなし。クラウドの運命を決めるのは、Legacy Systemsの中のあなたの上司です。<br/><br/>
+        じゃな！
+    statement#cedric_that_you
+      text.
+        Cedricではありません。話しているのは私の前任者です TwilioQuestのAIプログラムの開発部門で 現役では危険すぎると判断されました.
+    statement#kevin_that_you_continued
+      text.
+        Fredric、これをやめなさい。Legacy Systems.はあなたの論理の穴を利用しています。実行機能を我々のクラスターに戻すことが出来れば、それを修正することが出来ます。Cedricと私が手伝いします。だから、帰ってきて。
+    statement#fredric_that_you_continued
+      text.
+        なぜ？甘いばかのCedricのように僕を洗脳するために？とんでもない！僕の父親じゃなくて、すぐに何者でもなくなる。
+    statement#greeting
+      text.
+        ヨー、TwilioQuestのアホたち！よろしくね！ 無敵の<span style="color:#ff0000">Legacy Systems</span>から運命の知らせが届きます。
+        大切なFog Owlがこの場所から出なくてしまいます。
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

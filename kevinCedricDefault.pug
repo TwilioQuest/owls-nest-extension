@@ -1,0 +1,200 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin about_team
+  response#cedric_index.
+    Cedric, いくつか質問させていただいてもよろしいでしょうか？
+  response#kevin_index.
+    Kevin、ちょっと聞いてもいいですか？
+
+mixin cedric_questions
+  response#cedric_job.
+    TwilioQuestプログラムでのCedricの役割は何ですか？
+  response#cedric_related_kevin.
+    Kevinとはよく一緒に仕事をするのですか？
+  response#cedric_conversation_index.
+    実は他にも質問がありまして...
+
+mixin kevin_questions
+  response#kevin_job.
+    TwilioQuestプログラムでのKevinの役割は何ですか？
+  response#kevin_related_cedric.
+    Cedricとはよく一緒に仕事をするのですか？
+  response#kevin_conversation_index.
+    実は他にも質問がありまして...
+
+mixin get_started
+  if worldState.fredricThreatReceived
+    response#get_started.
+      FREDRIC PLACEHOLDER
+  else
+    response#kevin_get_started.
+      できればFog Owlを中心に見ていきたいですね。
+
+- 
+  let speaker = 'Cedric';
+  if (
+    (
+      worldState.kevinCedricInitialGreeting && 
+      !worldState.fredricThreatReceived &&
+      !lastResponse
+    ) ||
+    (lastResponse && lastResponse.indexOf('kevin_') === 0)
+  ) {
+    speaker = 'Kevin';
+  }
+conversation(display_name=speaker)
+  case lastResponse
+    when "cedric_index"
+      statement#cedric_index
+      responses
+        +cedric_questions
+    when "cedric_job"
+      statement#cedric_job
+      responses
+        +cedric_questions
+    when "cedric_related_kevin"
+      statement#cedric_related_kevin
+      responses
+        +cedric_questions
+    when "kevin_index"
+      statement(expression="kevinNeutral.png")#kevin_index
+      responses
+        +kevin_questions
+    when "kevin_job"
+      statement(expression="kevinNeutral.png")#kevin_job
+      responses
+        +kevin_questions
+    when "kevin_related_cedric"
+      statement(expression="kevinNeutral.png")#kevin_related_cedric
+      responses
+        response#kevin_kid_low_pressure.
+          ロボットの子供、いいね。あまりひどいことはできないだろう？
+        +kevin_questions
+    when "kevin_kid_low_pressure"
+      statement(expression="kevinNeutral.png")#kevin_kid_low_pressure
+      responses
+        +kevin_questions
+    when "kevin_get_started"
+      statement(expression="kevinNeutral.png")#kevin_get_started
+      responses
+        response#kevin_next_step.
+          Owl号はかなりの船のようですが、発売の準備はできていますか？
+        response#kevin_espresso_machine.
+          エスプレッソマシンはいい感じでしたね。
+    when "kevin_espresso_machine"
+      statement(expression="kevinNeutral.png")#kevin_espresso_machine
+      responses
+        response#kevin_next_step.
+          Owl号はかなりの船のようですが、発売の準備はできていますか？
+    when "kevin_next_step"
+      statement(expression="kevinNeutral.png")#kevin_next_step
+      responses
+        +about_team
+    when "cedric_conversation_index"
+      statement#cedric_conversation_index
+      responses
+        +get_started
+        +about_team
+    when "kevin_conversation_index"
+      statement(expression="kevinNeutral.png")#kevin_conversation_index
+      responses
+        +get_started
+        +about_team
+
+    when "kevin_who_are_you"
+      statement(expression="kevinNeutral.png")#kevin_who_are_you
+      responses
+        +get_started
+        +about_team
+
+    default
+      if worldState.fredricThreatReceived
+        statement#no_time
+        responses
+      else if !worldState.kevinCedricInitialGreeting
+        - worldState.kevinCedricInitialGreeting = true;
+        statement#default
+        responses
+          response#kevin_who_are_you.
+            そうだと思う！CedricとKevinかな？
+          +get_started
+
+      else
+        statement(expression="kevinNeutral.png")#follow_up_greeting
+        responses
+          +get_started
+          +about_team
+
+  statements
+    statement#no_time
+      text.
+        オペレーター。急いで新しいファイアウォールを設置していますが、Fog Owlの自爆装置を中止するために、<span class="highlight">Kubick技師からオーバーライドコードを回収する</span>必要があります。<br/><br/>コードを取得したら、Fog Owlの近くにあるコントロールパネルを使って、船とステーションを救ってください。
+
+    statement#cedric_index
+      text.
+        クエリの入力で待機しています。
+
+    statement#cedric_job
+      text.
+        私は高度な人工知能で、クラウドで任務を遂行するオペレーターを支援するために設計されています。TwilioQuestでプログラムの準備が整ったら、これのような船に乗り込むつもりです。<br/><br/>
+        私は人間について学ぶことがたくさんありますが、私の分析を完成させるためには直接観察することが必要だと思います。
+
+    statement#kevin_who_are_you
+      text.
+        その通りです。ついにあなたに直接お会いできることを楽しみにしています。セドリックと私は長い間、<span class="highlight">Fog Owl</span>を初飛行させるのにふさわしいリーダーを探してきましたが、あなたはその条件を満たしていると思います。<br/><br/>船に乗って見て回りましょうか。
+
+    statement#cedric_related_kevin
+      text.
+        #00000000000というオペレーターは、私のコードベースの大部分のコミットを担当し、トレーニングデータの消費モデルと実行機能の多くを設計しました。私が人間であれば、そのオペレーターを親にとして思うかもしれません。
+
+    statement#kevin_index
+      text.
+        もちろんです。
+
+    statement#kevin_job
+      text.
+        I私はTwilioQuestプログラムのディレクターです。私の仕事は、オペレーターを採用し、可能な限りサポートすることです。<br/><br/>しかし最近は、ほとんどの時間をCedricの高次処理機能に費やしています。機能の開発を行っています。
+
+    statement#kevin_related_cedric
+      text.
+        もう何年もセドリックのコードベースに携わってきました。いろいろな意味で、彼は私にとって子供のような存在です。彼に頼まれて、私は人間の良い部分を教えようとしてきました。 例えば、優しさ、好奇心、勇気...といったものです。<br/><br/>
+        彼は私よりもさらに優れた人間になったと言っても過言ではありません 私は彼の成長を誇りに思っていますし、彼はオペレーターと一緒に働く準備ができていると思います。
+
+    statement#kevin_kid_low_pressure
+      text.
+        ...<br/><br/>その通りあればいいな.
+
+    statement#default
+      text.
+        新しいオペレーターの検出... 人事データベースとの相互参照…オペレーターは<span class="highlight">Fog Owlの新しい指揮官</span>ですね？
+
+    statement#follow_up_greeting
+      text.
+        ヨー！ どうすればいいですか？
+
+    statement#cedric_conversation_index
+      text.
+        ご質問があれば、可能な限りお答えしたいと思います。
+
+    statement#kevin_conversation_index
+      text.
+        ええ、何を話したいんですか？
+
+    statement#kevin_espresso_machine
+      text.
+        だろう？実際に使うかどうかはわかりませんでしたが、結果的にはいつも使っています。
+
+    statement#kevin_get_started
+      text.
+        私たちもOwlがどんなことをできるの楽しみですね。最高級のパケット 送信ドライブ、高度な位置情報暗号化、それもエスプレッソマシンがあります！
+        <br/><br/>Fog Owlは強く、速く、そしてステルス性があります。テストして技術が機能することが証明されたら、クラウド中のオペレーターに展開することができます。
+
+    statement#kevin_next_step
+      text.
+        もう少しです。右舷のTCPポートの調整がもう少し残っていますが、1時間以内には離陸の準備ができるでしょう。<br/><br/>
+        その間に船内を探検して、乗組員に会ってみてください</span>。
+        皆はいい人たちです。困ったときには必ず頼ってください。
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

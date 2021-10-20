@@ -1,11 +1,12 @@
-const handleMovementTutorial = require('./events/handleMovementTutorial');
-const handleHackingTutorial = require('./events/handleHackingTutorial');
-const handleFredric = require('./events/handleFredric');
-const handleOverride = require('./events/handleOverride');
-const updateQuestStatus = require('./events/updateQuestStatus');
+const handleMovementTutorial = require("./events/handleMovementTutorial");
+const handleHackingTutorial = require("./events/handleHackingTutorial");
+const handleFredric = require("./events/handleFredric");
+const handleOverride = require("./events/handleOverride");
+const updateQuestStatus = require("./events/updateQuestStatus");
+const handleSkipPrologue = require("./events/handleSkipPrologue");
 
 // Set up level state
-const STATE_KEY = 'com.twilioquest.owls_nest';
+const STATE_KEY = "com.twilioquest.owls_nest";
 const DEFAULT_STATE = {
   // Movement tutorial state
   movementSwitch: false,
@@ -15,9 +16,11 @@ const DEFAULT_STATE = {
   hackingToolAcquired: false,
   firstObjectiveHacked: false,
   margaretInitialGreeting: false,
+
+  shouldSkipPrologue: false,
 };
 
-module.exports = function(event, world) {
+module.exports = function (event, world) {
   // Load world state
   let worldState = world.getState(STATE_KEY) || DEFAULT_STATE;
 
@@ -36,22 +39,24 @@ module.exports = function(event, world) {
   // Update current quest status text if needed
   updateQuestStatus(event, world, worldState);
 
+  handleSkipPrologue(event, world, worldState);
+
   // Go to victory map if necessary
   if (
-    event.name === 'mapDidLoad' && 
+    event.name === "mapDidLoad" &&
     worldState.missionComplete &&
-    event.mapName !== 'victory'
+    event.mapName !== "victory"
   ) {
-    window.warp('owls_nest', 'player_entry1', 'victory');
+    window.warp("owls_nest", "player_entry1", "victory");
   }
 
   // Initiate victory conversation when appropriate
   if (
-    event.name === 'mapDidLoad' && 
+    event.name === "mapDidLoad" &&
     worldState.missionComplete &&
-    event.mapName === 'victory'
+    event.mapName === "victory"
   ) {
-    world.startConversation('kevinVictoryInitial', 'kevinNeutral.png', 500);
+    world.startConversation("kevinVictoryInitial", "kevinNeutral.png", 500);
   }
 
   // Persist world state across event handler invocations

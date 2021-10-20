@@ -1,0 +1,132 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+mixin break_stuff
+  response#break_stuff.
+    壊すことは趣味ですか？
+
+mixin get_started
+  if worldState.firstObjectiveHacked
+    response#get_started.
+      ハッキングツールは広告通りに機能しているようだ。もうレーザーバリアは消えた。
+  else if worldState.hackingToolAcquired
+    response#get_started.
+      ハッキングツールを手に入れたからには、何をすればいい？
+  else
+    response#get_started.
+      任務に役立つツールを持っているそうですが。
+
+conversation(display_name="Margaret")
+  case lastResponse
+    when "break_stuff"
+      statement#break_stuff
+      responses
+        response#no_harm.
+          ね、危害を加えない、反則をしない。そんな感じあるよね。
+        response#what_vcr.
+          VCRとは。。。何ですか？
+
+    when "what_vcr"
+      statement#what_vcr
+      responses
+        +get_started
+
+    when "no_harm"
+      statement#extra_parts
+      responses
+        +get_started
+
+    when "who_are_you"
+      statement#margaret
+      responses
+        +break_stuff
+        +get_started
+
+    when "get_started"
+      statement#get_started
+      responses
+        if worldState.firstObjectiveHacked
+          response#understood.
+            ハッキングツールは本当に便利になりそうです。ありがとうございます！そうだから次は何？
+        else
+          response#how_hack.
+            ハッキングツールの使い方を説明してくだせい。
+    
+    when "how_hack"
+      statement#how_hack
+      responses
+        response#understood.
+          ハックしたいものを見つけて、課題をクリアして、報酬を得る。了解!
+
+    when "understood"
+      statement#keep_moving
+      responses
+        response#who_are_you.
+          あなたが誰で、ここで何をしているのか教えてくださいませんか。
+
+    default
+      if !worldState.margaretInitialGreeting
+        - worldState.margaretInitialGreeting = true;
+        statement#default
+        responses
+          response#who_are_you.
+            すごい！まだ会ってないの？
+          +get_started
+
+      else
+        statement#follow_up_greeting
+        responses
+          response#who_are_you.
+            あなたが誰で、ここで何をしているのか教えてくださいませんか。
+          +get_started
+
+  statements
+    statement#default
+      text.
+        ね、ね〜！オペレーター! ここに来て！見せてしたい何かがあるよ。
+
+    statement#follow_up_greeting
+      text.
+        こんにちは、同胞の人間の一人。お知恵をあげてもよろしいでしょうか？
+
+    statement#how_hack
+      text.
+        ハッキングできそうなものに近づき、<span class="highlight">スペースキー</span>を押する。そうすると、ハッキングインターフェースが表示される。ハッキングインターフェースでは、コードを書いたり、質問に答えたりなど、何かしらの課題が提示される。
+        <br/><br/>説明通りに課題をクリアすると、「ジャジャーン」！今までロックされていたものがロックされなくなった。
+
+    statement#get_started
+      if worldState.firstObjectiveHacked
+        text.
+          ハッキングツールを使って、あのレーザーバリアーを壊したんだね！？やったー！成功だね！
+      else if worldState.hackingToolAcquired
+        text.
+          台座からハッキングツールを掴んだのか？それはいいよ！君のになった! 冒険のためよね!<br/><br/>
+          そこにある<span class="highlight">レーザーに付いている端末</span>で試してみてくださいね。
+      else 
+        text.
+          もちろんです。 <span class="highlight">あそこの台座に置いてあるハッキングツール</span>だわ。あの小さな不思議な道具があれば、あらゆるものを壊すことができるだろう--ね、正義の名の下に、その意味だね。
+          <br/><br/>ハッキングツールを使って、ロックされたドアを迂回したり、宝箱を開けたり、さらには、この部屋にあるような<span class="highlight">レーザーバリアを消す</span>こともできる。
+    
+    statement#margaret
+      text.
+        <span class="highlight">Margaret Staples</span>と申します。お会いできて嬉しいです。うちはTwilioQuestの実験科学者で、あなたが冒険で使う超便利なハッキングツールの発明者ですよ。<br/><br/>うちの仕事は最高でしょうよ。 
+        物を壊したり、元通りにしたり、でもな、誰も気にしていないようです。
+    
+    statement#break_stuff
+      text.
+        それは趣味というよりも、聖なる天職と言っても過言ではありません。子供の頃はVCRを何度も分解して組み立て直したことがあります。
+
+    statement#what_vcr
+      text.
+        ええ？荒らされているのか、それとも本当に超高齢なのかわからないかな。。。
+  
+    statement#extra_parts
+      text.
+        完璧じゃなかったんですけど、VHSテープの『ゴーストバスターズ』はまだ使えたようです。だから、大丈夫だったよね？
+
+    statement#keep_moving
+      text.
+        ハックの魔法が完成したら、ドアを通って<span class="highlight">CedricとKevin</span>に会いに行ってみてください。その後は、Fog Owl号での大冒険に出っていると思うよ。もうすぐこの小鳥が巣立っていくなんて、誇らしいですね。
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);

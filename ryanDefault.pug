@@ -1,0 +1,27 @@
+- const STATE_KEY = 'com.twilioquest.owls_nest';
+- const worldState = getState(STATE_KEY);
+
+conversation(display_name="Ryan")
+  case lastResponse
+    when "you_okay"
+      statement#you_okay
+      responses
+
+    default
+      statement#thanks
+      responses
+        response#you_okay.
+          ありがとう。できるだけ早く向かいます。大丈夫ですか？
+
+  statements
+    statement#you_okay
+      text.
+        そう思う、あなたのおかげで. でもね、私はちょっとここにいてみようと思う。怖いとかじゃなくて、今週のサッカーでハムストリングを引っ張ってしまったんだばかりなのですよ。そうです。その ハムストリングの問題だ。<br/><br/>
+        コードを使用するコントロールパネルは、<span class="highlight">Fog Owlの隣</span>にある。
+       
+    statement#thanks
+      text.
+        私を助けに来てくれてありがとう。このハードウェアトークンを受け取ってください。Fog Owlの自爆装置を中止するために必要なルートアクセスキーが入っている。
+
+// Flush world state changes, if any
+- setState(STATE_KEY, worldState);
