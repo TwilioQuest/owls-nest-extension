@@ -1,47 +1,33 @@
 const LEVEL = 'owls_nest';
-const TITLE = `Leaving the Owl's Nest`;
 
 // Based on the current level state, determine what 
 function updateQuestStatus(event, world, worldState) {
-  let description = `
-    Use WASD or arrow keys to move, spacebar to interact. Flip the blue switch!
-  `;
+  let description = world.getTranslatedString('owls_nest.updateQuestStatus.description');
   let complete = false;
 
   if (worldState.movementSwitch) {
-    description = `
-      Get the hacking tool from the pedestal and use it to bypass the security
-      terminal.
-    `;
+    description = world.getTranslatedString('owls_nest.updateQuestStatus.movementSwitch');
   }
 
   if (worldState.firstObjectiveHacked) {
-    description = `
-      Talk to Kevin and Cedric, then take command of the Fog Owl!
-    `;
+    description = world.getTranslatedString('owls_nest.updateQuestStatus.firstObjectiveHacked');
   }
 
   if (worldState.fredricThreatReceived) {
-    description = `
-      Get the self-destruct override codes from Ryan! You'll need a fire 
-      extinguisher.
-    `;
+    description = world.getTranslatedString('owls_nest.updateQuestStatus.fredricThreatReceived');
   }
 
   if (worldState.ryanSaved) {
-    description = `
-      Use the override codes to abort the Fog Owl's self-destruct sequence!
-    `;
+    description = world.getTranslatedString('owls_nest.updateQuestStatus.ryanSaved');
   }
 
   if (worldState.missionComplete) {
-    description = `
-      Board the Fog Owl and begin your adventure!
-    `;
+    description = world.getTranslatedString('owls_nest.updateQuestStatus.missionComplete');
     complete = true;
   }
 
-  world.updateQuestStatus(LEVEL, TITLE, description, complete);
+  world.updateQuestStatus(LEVEL, world.getTranslatedString('owls_nest.updateQuestStatus.title'),
+    description, complete, event.name === 'languageRefresh');
 }
 
 module.exports = updateQuestStatus
