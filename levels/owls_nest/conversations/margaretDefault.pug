@@ -3,18 +3,18 @@
 
 mixin break_stuff
   response#break_stuff.
-    Do you make a habit of breaking stuff?
+    !{getTranslatedString('owls_nest.margaretDefault.break_stuff_break_stuff')}
 
 mixin get_started
   if worldState.firstObjectiveHacked
     response#get_started.
-      Looks like the hacking tool works as advertised. No more laser barrier.
+      !{getTranslatedString('owls_nest.margaretDefault.get_started_firstObjectiveHacked_response')}
   else if worldState.hackingToolAcquired
     response#get_started.
-      Now that I have the hacking device, what should I do?
+      !{getTranslatedString('owls_nest.margaretDefault.get_started_hackingToolAcquired_response')}
   else
     response#get_started.
-      I understand you have a tool that might help me with the mission?
+      !{getTranslatedString('owls_nest.margaretDefault.get_started_get_started')}
 
 conversation(display_name="Margaret")
   case lastResponse
@@ -22,9 +22,9 @@ conversation(display_name="Margaret")
       statement#break_stuff
       responses
         response#no_harm.
-          Hey, no harm, no foul, amirite?
+          !{getTranslatedString('owls_nest.margaretDefault.break_stuff_no_harm')}
         response#what_vcr.
-          What's a VCR?
+          !{getTranslatedString('owls_nest.margaretDefault.break_stuff_what_vcr')}
 
     when "what_vcr"
       statement#what_vcr
@@ -47,22 +47,22 @@ conversation(display_name="Margaret")
       responses
         if worldState.firstObjectiveHacked
           response#understood.
-            The hacking tool is going to be really useful, thank you! What's our next step?
+            !{getTranslatedString('owls_nest.margaretDefault.get_started_understood')}
         else
           response#how_hack.
-            How do I use the hacking tool?
+            !{getTranslatedString('owls_nest.margaretDefault.get_started_how_hack')}
     
     when "how_hack"
       statement#how_hack
       responses
         response#understood.
-          Find a thing to hack, complete a task, and reap the rewards. Got it.
+          !{getTranslatedString('owls_nest.margaretDefault.how_hack_understood')}
 
     when "understood"
       statement#keep_moving
       responses
         response#who_are_you.
-          Could you remind me who you are, and what you do here?
+          !{getTranslatedString('owls_nest.margaretDefault.keep_moving_who_are_you')}
 
     default
       if !worldState.margaretInitialGreeting
@@ -70,84 +70,59 @@ conversation(display_name="Margaret")
         statement#default
         responses
           response#who_are_you.
-            Sweet! Have we met yet?
+            !{getTranslatedString('owls_nest.margaretDefault.default_default')}
           +get_started
 
       else
         statement#follow_up_greeting
         responses
           response#who_are_you.
-            Could you remind me who you are, and what you do here?
+            !{getTranslatedString('owls_nest.margaretDefault.default_follow_up_greeting')}
           +get_started
 
   statements
     statement#default
       text.
-        Ooh, ooh, Operator! Over here! I have something to show you.
+        !{getTranslatedString('owls_nest.margaretDefault.default')}
 
     statement#follow_up_greeting
       text.
-        Greetings, fellow human. May I offer wisdom or assistance?
+        !{getTranslatedString('owls_nest.margaretDefault.follow_up_greeting')}
 
     statement#how_hack
       text.
-        Walk up to an object you think might be hackable, and press the 
-        <span class="highlight">spacebar</span>. That should bring up the hacking 
-        interface. The hacking interface will present you with some kind of 
-        challenge - you might need to write code, answer some questions... stuff like that.
-        <br/><br/>Complete the challenge as described, and SHAZAM! Whatever was
-        locked before is locked no more.
+        !{getTranslatedString('owls_nest.margaretDefault.how_hack')}
 
     statement#get_started
       if worldState.firstObjectiveHacked
         text.
-          You used the hacking tool to bring down that laser barrier! 
-          Yaaaaaay! Go you!
+          !{getTranslatedString('owls_nest.margaretDefault.get_started_firstObjectiveHacked')}
       else if worldState.hackingToolAcquired
         text.
-          Oh, you grabbed the hacking tool off the pedestal? That's great! 
-          It's for you! For adventure!<br/><br/>
-          You should try it out on the 
-          <span class="highlight">terminal attached to those pesky lasers</span>
-          over there.
+          !{getTranslatedString('owls_nest.margaretDefault.get_started_hackingToolAcquired')}
       else 
         text.
-          You better believe I do. It's that <span class="highlight">hacking tool 
-          sitting on the pedestal over there</span>. With that little wonder, 
-          you'll be able to break all kinds of things - in the name of justice 
-          of course.<br/><br/> You can use the hacking tool to bypass locked doors, 
-          open chests, and notably, to <span class="highlight">shut down laser barriers</span> 
-          like the one in this room.
+          !{getTranslatedString('owls_nest.margaretDefault.get_started')}
     
     statement#margaret
       text.
-        <span class="highlight">Margaret</span>, and very pleased to make 
-        your acquaintance. I'm an experimental scientist in the TwilioQuest 
-        program, and the inventor of the super-duper-handy hacking tool you'll 
-        use on your adventures. <br/><br/> I have basically the best job ever - 
-        I get to break things, and put them back together again, and no one 
-        seems to mind!
+        !{getTranslatedString('owls_nest.margaretDefault.margaret')}
     
     statement#break_stuff
       text.
-        I wouldn't say it's a habit so much as a sacred calling. I lost track of 
-        how many times as a kid I took apart our VCR and put it back together again.
+        !{getTranslatedString('owls_nest.margaretDefault.break_stuff')}
 
     statement#what_vcr
       text.
-        Unsure if I am being trolled, or am just legitimately super old.
+        !{getTranslatedString('owls_nest.margaretDefault.what_vcr')}
   
     statement#extra_parts
       text.
-        I usually had a few extra parts left over, but our VHS tapes of Ghostbusters 
-        still seemed to work. So I guess it was fine?
+        !{getTranslatedString('owls_nest.margaretDefault.extra_parts')}
 
     statement#keep_moving
       text.
-        With your hackery complete, you'll want to head through the door to meet 
-        <span class="highlight">Cedric and Kevin</span>. After that, I think you're off on your 
-        big adventure aboard the Fog Owl. I'm so proud our little bird is about
-        to leave the nest!
+        !{getTranslatedString('owls_nest.margaretDefault.keep_moving')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

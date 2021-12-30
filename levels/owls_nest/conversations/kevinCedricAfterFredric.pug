@@ -7,7 +7,7 @@ conversation(display_name="Kevin")
       statement#how_shut_it_down
       responses
         response#on_it.
-          I'm on it - I'll track down Ryan and get the override codes.
+          !{getTranslatedString('owls_nest.kevinCedricAfterFredric.how_shut_it_down_on_it')}
     
     when "on_it"
       statement#not_much_time
@@ -17,28 +17,18 @@ conversation(display_name="Kevin")
       statement#oh_no
       responses
         response#how_shut_it_down.
-          Is there something we can do to shut it down?
+          !{getTranslatedString('owls_nest.kevinCedricAfterFredric.default')}
 
   statements
     statement#not_much_time
       text.
-        I think he was in engineering when the lockdown started, working on the 
-        drive coils. Worse, I think <span class="highlight">fires from a fuel leak have cut him off</span>
-        from the rest of the station.<br/><br/>Find Ryan, find a way to get to him,
-        and then <span class="highlight">bring his override codes to the console near the Fog Owl</span>. 
-        We'll delay the self destruct as long as we can, but you have to hurry.
+        !{getTranslatedString('owls_nest.kevinCedricAfterFredric.not_much_time')}
     statement#how_shut_it_down
       text.
-        Cedric can slow down the process, but the only way I can think of to 
-        stop it is by using our root access codes. <span class="highlight">Ryan</span>,
-        the chief architect of the Fog Owl, should have his hardware token with 
-        the codes.
+        !{getTranslatedString('owls_nest.kevinCedricAfterFredric.how_shut_it_down')}
     statement#oh_no
       text.
-        Fredric... I knew he was misguided, but I never imagined he'd work with 
-        the Legacy Systems. I don't know how he did it, but he managed to 
-        override our security protocols and initiate the Fog Owl's self-destruct 
-        sequence.
+        !{getTranslatedString('owls_nest.kevinCedricAfterFredric.oh_no')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

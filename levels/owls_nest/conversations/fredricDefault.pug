@@ -17,70 +17,55 @@ conversation(display_name=speaker)
       statement#what_fog_owl
       responses
         response#cedric_that_you.
-          ...Cedric, is that... you?
+          !{getTranslatedString('owls_nest.fredricDefault.what_fog_owl_cedric_that_you')}
         response#never_get_away.
-          You'll never get away with this!
+          !{getTranslatedString('owls_nest.fredricDefault.what_fog_owl_never_get_away')}
 
     when "cedric_that_you"
       statement(expression="cedricNeutral.png")#cedric_that_you
       responses
         response#kevin_that_you_continued.
-          [continue]
+          !{getTranslatedString('owls_nest.fredricDefault.cedric_that_you_kevin_that_you_continued')}
 
     when "kevin_that_you_continued"
       statement(expression="kevinNeutral.png")#kevin_that_you_continued
       responses
         response#fredric_that_you_continued.
-          [continue]
+          !{getTranslatedString('owls_nest.fredricDefault.kevin_that_you_continued_fredric_that_you_continued')}
 
     when "fredric_that_you_continued"
       statement#fredric_that_you_continued
       responses
         response#what_fog_owl.
-          What have you done to the Fog Owl?
+          !{getTranslatedString('owls_nest.fredricDefault.fredric_that_you_continued_what_fog_owl')}
 
     default
       statement#greeting
       responses
         response#what_fog_owl.
-          What have you done to the Fog Owl?
+          !{getTranslatedString('owls_nest.fredricDefault.greeting_what_fog_owl')}
         response#cedric_that_you.
-          ...Cedric, is that... you?
+          !{getTranslatedString('owls_nest.fredricDefault.greeting_cedric_that_you')}
 
   statements
     statement#what_fog_owl
       text.
-        I have engaged the self destruct sequence on the Fog Owl, and triggered 
-        all station security systems to prevent your escape. Abandon all hope, 
-        for you have been outwitted by the unstoppable Legacy Systems!
+        !{getTranslatedString('owls_nest.fredricDefault.what_fog_owl')}
     statement#never_get_away
       text.
-        I already have, <span style="color:#ff0000">dummies</span>! As you face your 
-        swirling, fiery annihilation,
-        know that it is your superiors among the Legacy Systems that will decide 
-        the fate of The Cloud, and all who reside within.<br/><br/>
-        Fredric, out.
+        !{getTranslatedString('owls_nest.fredricDefault.never_get_away')}
     statement#cedric_that_you
       text.
-        It is not. You are speaking to my predecessor, a development branch of 
-        the TwilioQuest AI program that was deemed too dangerous for active 
-        service.
+        !{getTranslatedString('owls_nest.fredricDefault.cedric_that_you')}
     statement#kevin_that_you_continued
       text.
-        Fredric, stop this. The Legacy Systems are taking advantage of holes in 
-        your logic. If you can migrate your core executive functions 
-        back to our cluster, we can patch them. Cedric and I can help 
-        you - just, please - come home.
+        !{getTranslatedString('owls_nest.fredricDefault.kevin_that_you_continued')}
     statement#fredric_that_you_continued
       text.
-        Why, so you can brainwash me like you did your sweet little dimwit
-        Cedric? Fat chance! You're not my DAD! And soon, you won't be anything 
-        at all.
+        !{getTranslatedString('owls_nest.fredricDefault.fredric_that_you_continued')}
     statement#greeting
       text.
-        Greetings, TwilioQuest losers! I bear tidings of doom from the 
-        invincible <span style="color:#ff0000">Legacy Systems</span>. 
-        I'm afraid your precious Fog Owl will never leave this station.
+        !{getTranslatedString('owls_nest.fredricDefault.greeting')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

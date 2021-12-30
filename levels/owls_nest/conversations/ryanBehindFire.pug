@@ -7,7 +7,7 @@ conversation(display_name="Ryan")
       statement#how_help
       responses
         response#on_it.
-          Don't worry - I'll grab the fire extinguisher.
+          !{getTranslatedString('owls_nest.ryanBehindFire.how_help_on_it')}
     
     when "on_it"
       statement#thanks
@@ -17,25 +17,18 @@ conversation(display_name="Ryan")
       statement#oh_no
       responses
         response#how_help.
-          Ryan? I'll help you if I can, but I don't know how to get past these 
-          flames.
+          !{getTranslatedString('owls_nest.ryanBehindFire.oh_no_how_help')}
 
   statements
     statement#thanks
       text.
-        I owe you one! Once you have the fire extinguisher, walk up to the flames 
-        and <span class="highlight">press the spacebar</span>. The fire extinguisher 
-        should deploy automatically. 
+        !{getTranslatedString('owls_nest.ryanBehindFire.thanks')} 
     statement#how_help
       text.
-        There should be a <span class="highlight">fire extinguisher</span>
-        in the storage room! It will be inside a <span class="highlight">red chest</span>.
-        <br/><br/>With all the station security going haywire, you may need to 
-        <span class="highlight">hack the chest</span> first. Once you get the 
-        fire extinguisher, head back here and put out the flames. Please?
+        !{getTranslatedString('owls_nest.ryanBehindFire.how_help')}
     statement#oh_no
       text.
-        Hey! Operator! Little help?
+        !{getTranslatedString('owls_nest.ryanBehindFire.oh_no')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

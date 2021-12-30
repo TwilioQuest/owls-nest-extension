@@ -7,15 +7,15 @@ conversation(display_name="Kevin")
       statement#how_help
       responses
         response#like_fredric.
-          Is there any chance he'll end up like his... brother?
+          !{getTranslatedString('owls_nest.kevinVictoryInitial.how_help_like_fredric')}
         response#will_do.
-          I'm sure Cedric will be a great addition to the crew.
+          !{getTranslatedString('owls_nest.kevinVictoryInitial.how_help_will_do')}
     
     when "like_fredric"
       statement#like_fredric
       responses
         response#will_do.
-          I won't. And I'll keep an eye on Cedric for you.
+          !{getTranslatedString('owls_nest.kevinVictoryInitial.like_fredric_will_do')}
 
     when "will_do"
       statement#will_do
@@ -25,32 +25,21 @@ conversation(display_name="Kevin")
       statement#default
       responses
         response#how_help.
-          It's been kind of a big day already, but I'll help if I can.
+          !{getTranslatedString('owls_nest.kevinVictoryInitial.default_how_help')}
 
   statements
     statement#like_fredric
       text.
-        I don't think so - he's consistently chosen to look on humanity more 
-        favorably than Fredric did. And if you can, try not to blame Fredric for 
-        his actions. You should blame me instead. <br/><br/>
-        When I was developing the Fredric software, I was always focused on 
-        what was possible - I didn't think about what could happen if the 
-        technology I was building was used in the wrong way. In your career 
-        as a developer, please don't make the same mistake I did.
+        !{getTranslatedString('owls_nest.kevinVictoryInitial.like_fredric')}
     statement#how_help
       text.
-        Cedric is aboard the Fog Owl right now, and he'd like to accompany you 
-        on your mission. I think he's ready to get out in the world - he'll be a
-        great help to you, I'm sure. Would you keep an eye on him for me?
+        !{getTranslatedString('owls_nest.kevinVictoryInitial.how_help')}
     statement#will_do
       text.
-        I know you won't let us down. Good luck, Operator. We'll see you in 
-        The Cloud!
+        !{getTranslatedString('owls_nest.kevinVictoryInitial.will_do')}
     statement#default
       text.
-        I don't know what to say - you saved the Fog Owl and everyone on this
-        station. We owe you a debt we can never repay.<br/><br/> That's why 
-        it pains me to ask one more favor of you.
+        !{getTranslatedString('owls_nest.kevinVictoryInitial.default')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

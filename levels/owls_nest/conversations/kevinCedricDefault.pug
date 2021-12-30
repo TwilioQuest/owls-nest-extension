@@ -3,33 +3,33 @@
 
 mixin about_team
   response#cedric_index.
-    Cedric, I was wondering if I could ask you a few questions?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.about_team_cedric_index')}
   response#kevin_index.
-    Could I ask you something, Kevin?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.about_team_kevin_index')}
 
 mixin cedric_questions
   response#cedric_job.
-    What's your role in the TwilioQuest Program?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_questions_cedric_job')}
   response#cedric_related_kevin.
-    Do you work closely with Kevin?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_questions_cedric_related_kevin')}
   response#cedric_conversation_index.
-    Actually, I had other questions...
+    !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_questions_cedric_conversation_index')}
 
 mixin kevin_questions
   response#kevin_job.
-    What's your role in the TwilioQuest Program?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_questions_kevin_job')}
   response#kevin_related_cedric.
-    Do you work closely with Cedric?
+    !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_questions_kevin_related_cedric')}
   response#kevin_conversation_index.
-    Actually, I had other questions...
+    !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_questions_kevin_conversation_index')}
 
 mixin get_started
   if worldState.fredricThreatReceived
     response#get_started.
-      FREDRIC PLACEHOLDER
+      !{getTranslatedString('owls_nest.kevinCedricDefault.get_started_get_started')}
   else
     response#kevin_get_started.
-      I'd love to check out the Fog Owl if possible - I can't wait to see what it can do!
+      !{getTranslatedString('owls_nest.kevinCedricDefault.get_started_kevin_get_started')}
 
 - 
   let speaker = 'Cedric';
@@ -69,7 +69,7 @@ conversation(display_name=speaker)
       statement(expression="kevinNeutral.png")#kevin_related_cedric
       responses
         response#kevin_kid_low_pressure.
-          Robotic children - good idea! Can't mess them up too badly, right?
+          !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_related_cedric_kevin_kid_low_pressure')}
         +kevin_questions
     when "kevin_kid_low_pressure"
       statement(expression="kevinNeutral.png")#kevin_kid_low_pressure
@@ -79,14 +79,14 @@ conversation(display_name=speaker)
       statement(expression="kevinNeutral.png")#kevin_get_started
       responses
         response#kevin_next_step.
-          The Owl sounds like quite a ship - is it ready for launch?
+          !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_get_started_kevin_next_step')}
         response#kevin_espresso_machine.
-          The espresso machine was a nice touch.
+          !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_get_started_kevin_espresso_machine')}
     when "kevin_espresso_machine"
       statement(expression="kevinNeutral.png")#kevin_espresso_machine
       responses
         response#kevin_next_step.
-          The Owl sounds like quite a ship - is it ready for launch?
+          !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_espresso_machine_kevin_next_step')}
     when "kevin_next_step"
       statement(expression="kevinNeutral.png")#kevin_next_step
       responses
@@ -117,7 +117,7 @@ conversation(display_name=speaker)
         statement#default
         responses
           response#kevin_who_are_you.
-            I believe I am! Cedric and Kevin, I may presume?
+            !{getTranslatedString('owls_nest.kevinCedricDefault.default_kevin_who_are_you')}
           +get_started
 
       else
@@ -129,99 +129,67 @@ conversation(display_name=speaker)
   statements
     statement#no_time
       text.
-        Operator. I am erecting new firewalls as quickly as I can, but you must
-        <span class="highlight">retrieve the override codes from Engineer Kubik</span> to
-        abort the Fog Owl's self destruct sequence.<br/><br/>Once you retrieve 
-        the codes, use the control panel near the Fog Owl to save the ship and 
-        the station.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.no_time')}
 
     statement#cedric_index
       text.
-        Standing by for query input.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_index')}
 
     statement#cedric_job
       text.
-        I am an advanced artificial intelligence, designed to assist Operators on 
-        assignment in The Cloud. When my programming is deemed ready by the
-        TwilioQuest Program, I intend to serve aboard a ship like yours.<br/><br/>
-        I have much to learn about humanity, and I believe direct observation is 
-        required to complete my analysis.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_job')}
 
     statement#kevin_who_are_you
       text.
-        You presume correctly, and we're excited to finally meet you face to face! 
-        Cedric and I have been searching for a long time to find the right leader 
-        to take the <span class="highlight">Fog Owl</span> out on it's first 
-        flight, and we think you've got what it takes. <br/><br/>Ready to get on board and
-        take a look around?
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_who_are_you')}
 
     statement#cedric_related_kevin
       text.
-        Operator #00000000000 is credited with the vast majority of commits to 
-        my codebase, and has designed much of my training data consumption model 
-        and executive functions. Were I a human, I might regard him as a parent.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_related_kevin')}
 
     statement#kevin_index
       text.
-        Yeah, of course. Fire away.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_index')}
 
     statement#kevin_job
       text.
-        I'm the director of the TwilioQuest Program. My job is to recruit Operators 
-        like you, and support them in any way I can.<br/><br/>These days though,
-        I spend most of my time working on Cedric and his higher order processing 
-        functions.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_job')}
 
     statement#kevin_related_cedric
       text.
-        I've worked on Cedric's codebase for years now. In many ways, he's like 
-        a son to me. At his request, I've tried to teach him about the
-        best parts of humanity: kindness, curiosity, courage...<br/><br/>
-        I'd say he's become an even better human than I am! I'm very proud of 
-        his progress, and I think he's ready to serve alongside an Operator.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_related_cedric')}
 
     statement#kevin_kid_low_pressure
       text.
-        ...<br/><br/>If only you were right.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_kid_low_pressure')}
 
     statement#default
       text.
-        New Operator detected... Cross-referencing classified personnel database... 
-        You are the <span class="highlight">new commander of the Fog Owl</span>,
-        are you not?
+        !{getTranslatedString('owls_nest.kevinCedricDefault.default')}
 
     statement#follow_up_greeting
       text.
-        Hey there! How can we help?
+        !{getTranslatedString('owls_nest.kevinCedricDefault.follow_up_greeting')}
 
     statement#cedric_conversation_index
       text.
-        Ask, and I shall endeavor to answer them to the best of my ability.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.cedric_conversation_index')}
 
     statement#kevin_conversation_index
       text.
-        Sure - what did you want to talk about?
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_conversation_index')}
 
     statement#kevin_espresso_machine
       text.
-        Right? I didn't know if we'd actually use it, but it turns out we do all 
-        the time.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_espresso_machine')}
 
     statement#kevin_get_started
       text.
-        We can't wait to see what the Owl can do either! Top of the line packet 
-        transmission drive, advanced location encryption, and an espresso machine!
-        <br/><br/>The Fog Owl is tough, fast, and stealthy. Once you shake it 
-        down and prove that the tech works, we can roll it out to Operators all 
-        across The Cloud.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_get_started')}
 
     statement#kevin_next_step
       text.
-        Just about. We have a few more calibrations to complete on the starboard
-        TCP ports, but we should have you ready for liftoff inside the hour.<br/><br/>
-        In the meantime, you should <span class="highlight">check out the ship and meet your crew</span>.
-        They're a good bunch - some of our best. Be sure to lean on them when you 
-        need a hand.
+        !{getTranslatedString('owls_nest.kevinCedricDefault.kevin_next_step')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

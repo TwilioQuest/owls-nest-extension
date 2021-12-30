@@ -11,21 +11,15 @@ conversation(display_name="Ryan")
       statement#thanks
       responses
         response#you_okay.
-          Thanks, I'll head over as fast as I can. Are you going to be okay?
+          !{getTranslatedString('owls_nest.ryanDefault.thanks_you_okay')}
 
   statements
     statement#you_okay
       text.
-        I think so, thanks to you. But if it's all the same, I'll stay
-        here a minute. Not because I'm afraid or anything - I just pulled a
-        hamstring at soccer this week. Yeah - the hamstring thing.<br/><br/>
-        The control panel where you can use the code is
-        <span class="highlight">right next to the Fog Owl</span>.
+        !{getTranslatedString('owls_nest.ryanDefault.you_okay')}
     statement#thanks
       text.
-        Thanks for coming to rescue me! Here - take this hardware token - it 
-        has the root access keys you'll need to abort the Fog Owl's self destruct 
-        sequence.
+        !{getTranslatedString('owls_nest.ryanDefault.thanks')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);

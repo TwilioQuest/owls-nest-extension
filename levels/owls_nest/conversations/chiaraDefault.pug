@@ -3,15 +3,15 @@
 
 mixin relieved
   response#relieved.
-    You seemed to be relieved I made it into The Cloud alive...
+    !{getTranslatedString('owls_nest.chiaraDefault.relieved_response')}
 
 mixin get_started
   if worldState.movementSwitch
     response#understood.
-      I've cleared the security pylons - what should I do next?
+      !{getTranslatedString('owls_nest.chiaraDefault.get_started_understood')}
   else
     response#get_started.
-      I was asked to report here for a critical mission - should we get started?
+      !{getTranslatedString('owls_nest.chiaraDefault.get_started_get_started')}
 
 conversation(display_name="Chiara")
   case lastResponse
@@ -19,7 +19,7 @@ conversation(display_name="Chiara")
       statement#relieved
       responses
         response#fish.
-          ...fish?
+          !{getTranslatedString('owls_nest.chiaraDefault.relieved_fish')}
 
     when "fish"
       statement#tell_right_away
@@ -36,13 +36,13 @@ conversation(display_name="Chiara")
       statement#get_started
       responses
         response#letsgo.
-          Fair enough - what do you need me to do?
+          !{getTranslatedString('owls_nest.chiaraDefault.get_started_letsgo')}
     
     when "letsgo"
       statement#test_motor
       responses
         response#understood.
-          Understood - after I flip the switch, what next?
+          !{getTranslatedString('owls_nest.chiaraDefault.letsgo_understood')}
 
     when "understood"
       statement#keep_moving
@@ -55,72 +55,48 @@ conversation(display_name="Chiara")
         statement#default
         responses
           response#who_are_you.
-            It's certainly better than the alternative. I don't think we've been introduced?
+            !{getTranslatedString('owls_nest.chiaraDefault.default_default')}
           +get_started
 
       else
         statement#follow_up_greeting
         responses
           response#who_are_you.
-            Could you remind me who you are, and what you do here?
+            !{getTranslatedString('owls_nest.chiaraDefault.default_follow_up_greeting')}
           +get_started
 
   statements
     statement#default
       text.
-        Neural interface is stable... All life signs within normal parameters.
-        You're here, and you're alive! Isn't that wonderful!
+        !{getTranslatedString('owls_nest.chiaraDefault.default')}
 
     statement#follow_up_greeting
       text.
-        Hi !{settings.name}! Are you feeling okay? Is there anything I can help with?
+        !{getTranslatedString('owls_nest.chiaraDefault.follow_up_greeting')}
     
     statement#chiara
       text.
-        Oh, right, sure, of course. <span class="highlight">Chiara</span>, 
-        chief medical officer with the TwilioQuest program. I actually designed 
-        the new neural interface through which you are experiencing The Cloud. <br/><br/>
-        It would be a pleasure to meet you in any event, but today it is a
-        particular thrill - I wasn't quite sure this version of the interface 
-        was going to work!
+        !{getTranslatedString('owls_nest.chiaraDefault.chiara')}
     
     statement#relieved
       text.
-        Did I? Oh, no, I assure you, the neural interface is completely safe.<br/><br/>
-        On an unrelated note - you don't happen to smell fish, do you?
+        !{getTranslatedString('owls_nest.chiaraDefault.relieved')}
 
     statement#tell_right_away
       text.
-        I know, what a silly question. Why would you? There's no fish around here!<br/><br/>
-        But if you do start smelling fish, you need to tell me RIGHT AWAY, do 
-        you understand? Good? Good.
+        !{getTranslatedString('owls_nest.chiaraDefault.tell_right_away')}
 
     statement#keep_moving
       text.
-        Proceed through the medical bay door into the tech lab. Margaret will 
-        want to speak with you next - she'll equip you with a
-        <span class="highlight">critical tool</span> you'll need while exploring
-        The Cloud. Good luck out there!
+        !{getTranslatedString('owls_nest.chiaraDefault.keep_moving')}
 
     statement#test_motor
       text.
-        I'll need you to use <span class="highlight">basic movement and interaction controls</span>
-        to activate a switch near the exit to the medical bay. If you can do so,
-        we can be confident that your neural interface is configured correctly.<br/><br/>
-        You can move your avatar using the <span class="highlight">arrow keys, or the W, A, S, and D keys</span>.
-        You can interact with objects - the switch, for instance - 
-        using the <span class="highlight">spacebar</span>.
+        !{getTranslatedString('owls_nest.chiaraDefault.test_motor')}
 
     statement#get_started
       text.
-        Indeed. You've been selected from thousands of Operators to take command
-        of a prototype Cloud Exploration Vessel we call the 
-        <span class="highlight">Fog Owl</span>.
-        The Owl represents years of research and billions of dollars in cutting 
-        edge technology. More importantly, it could finally let us stay one step 
-        ahead of the Legacy Systems.<br/><br/> Before we worry about any 
-        of that, though, we'll need to check your basic motor functions and ensure
-        you are fit for duty.
+        !{getTranslatedString('owls_nest.chiaraDefault.get_started')}
 
 // Flush world state changes, if any
 - setState(STATE_KEY, worldState);
