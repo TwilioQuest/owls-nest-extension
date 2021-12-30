@@ -4,28 +4,18 @@ module.exports = async function (helper) {
   const worldState = helper.context.levelState['com.twilioquest.owls_nest'];
 
   if (!worldState.hackingToolAcquired) {
-    return helper.fail(`
-      Bypassing this system requires the <strong>hacking tool</strong>. 
-      Get the hacking tool by walking to the pedestal in this room and pressing 
-      the spacebar.
-    `);
+    return helper.fail(helper.world.getTranslatedString('owls_nest.hacking_tool_objective.hackingToolAcquired'));
   }
 
   if (!passcode) {
-    return helper.fail('BZZZT! Laser override passcode is required.');
+    return helper.fail(helper.world.getTranslatedString('owls_nest.hacking_tool_objective.passcode'));
   }
 
   if (passcode !== 'level up') {
-    return helper.fail(`
-      Passcode not recognized. Please read the "Objective" section of the
-      hack interface to reveal the correct passcode.
-    `);
+    return helper.fail(helper.world.getTranslatedString('owls_nest.hacking_tool_objective.levelUp'));
   }
 
   // The way we usually write validators is to fail fast, and then if we reach
   // the end, we know the user got all the answers right!
-  helper.success(`
-    You enter the passcode needed to bypass the lasers. Soon after, the lasers
-    retract and clear your path forward to the Fog Owl!
-  `);
+  helper.success(helper.world.getTranslatedString('owls_nest.hacking_tool_objective.success'));
 };

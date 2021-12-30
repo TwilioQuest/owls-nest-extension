@@ -1,0 +1,27 @@
+{
+  "title": "Segurança do código",
+  "description": "Dentro deste baú há um <strong>extintor de incêndio</strong> que você pode usar para apagar incêndios. Prove que você está pronto para usar o código de forma responsável para obter este item!",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "boolean",
+      "label": "Verdadeiro ou falso: O software instalado no computador pode potencialmente acessar seus arquivos e dados pessoais."
+    },
+    {
+      "name": "answer2",
+      "type": "boolean",
+      "label": "Verdadeiro ou falso: As amostras de código que você copia, cola e executa a partir da Internet não podem prejudicar seu computador."
+    },
+    {
+      "name": "answer3",
+      "type": "boolean",
+      "label": "Verdadeiro ou falso: É sempre seguro manter senhas, e-mails e outros dados pessoais em arquivos de código."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": [
+      "fire_extinguisher"
+    ]
+  }
+}

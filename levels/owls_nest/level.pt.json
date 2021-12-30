@@ -1,0 +1,27 @@
+{
+  "title": "Owl's Nest",
+  "description": "Instalação de pesquisa secreta usada para projetos estratégicos de pesquisa e desenvolvimento no Programa TwilioQuest. Local de nascimento de Cedric e do protótipo do CEV \"Fog Owl\".",
+  "questTitle": "Deixando Owl's Nest",
+  "questDescription": "Use as teclas WASD ou de seta para mover e a barra de espaço para interagir. Ligue o botão azul!",
+  "defaultGoal": "Assuma o comando de um protótipo do Cloud Exploration Vessel. Fale com os cientistas do TwilioQuest para obter ajuda e mais informações.",
+  "disableFogOwlButton": true,
+  "mission_icon": "mission_icon.png",
+  "is_mission": false,
+  "priority": 1,
+  "backgroundMusic": "fascinatingarea_108253b",
+  "backgroundEffect": {
+    "key": "starfield",
+    "options": {
+      "direction": "rightToLeft",
+      "baseSpeed": 0.015
+    }
+  },
+  "flavorTextOverrides": {
+    "security_pylon": "Esses postes de segurança não se moverão até que eu <em>gire o botão azul à esquerda</em>.<br/><br/>Para interagir com um objeto como o interruptor, preciso ir até ele e pressionar a <em>barra de espaço</em>.",
+    "under_construction": "Esta parte da base parece que ainda está em construção."
+  },
+  "objectives": [
+    "hacking_tool_objective",
+    "fire_extinguisher_objective"
+  ]
+}
