@@ -72,7 +72,7 @@ conversation(display_name="Chiara")
 
     statement#follow_up_greeting
       text.
-        !{getTranslatedString('owls_nest.chiaraDefault.follow_up_greeting')}
+        !{getTranslatedString('owls_nest.chiaraDefault.follow_up_greeting', { name: settings.name })}
     
     statement#chiara
       text.

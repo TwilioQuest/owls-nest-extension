@@ -9,8 +9,8 @@ module.exports = {
   'owls_nest.chiaraDefault.default_follow_up_greeting': `Could you remind me who you are, and what you do here?`,
   'owls_nest.chiaraDefault.default': `Neural interface is stable... All life signs within normal parameters.
   You're here, and you're alive! Isn't that wonderful!`,
-  'owls_nest.chiaraDefault.follow_up_greeting': `Hi !{settings.name}! Are you feeling okay? Is there anything I can help with?`,
-  'owls_nest.chiaraDefault.chiara': `Oh, right, sure, of course. <span class="highlight">Chiara</span>, 
+  'owls_nest.chiaraDefault.follow_up_greeting': `Hi {name}! Are you feeling okay? Is there anything I can help with?`,
+  'owls_nest.chiaraDefault.chiara': `Oh, right, sure, of course. <span class="highlight">Chiara</span>,
   chief medical officer with the TwilioQuest program. I actually designed 
   the new neural interface through which you are experiencing The Cloud. <br/><br/>
   It would be a pleasure to meet you in any event, but today it is a

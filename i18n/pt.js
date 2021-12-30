@@ -9,7 +9,7 @@ module.exports = {
   "owls_nest.chiaraDefault.default_follow_up_greeting": "Você poderia me lembrar quem você é e o que você faz aqui?",
   "owls_nest.chiaraDefault.default": `A interface neural está estável... Todos os sinais de vida dentro dos parâmetros normais.
   Você está aqui e está vivo! Não é maravilhoso?`,
-  "owls_nest.chiaraDefault.follow_up_greeting": "Olá !{settings.name}! Você está se sentindo bem? Posso ajudar em alguma coisa?",
+  "owls_nest.chiaraDefault.follow_up_greeting": "Olá {name}! Você está se sentindo bem? Posso ajudar em alguma coisa?",
   "owls_nest.chiaraDefault.chiara": `Ah, certo, claro, claro. <span class='highlight'>Chiara</span>, 
   médica chefe do programa TwilioQuest. Na verdade, projetei 
   a nova interface neural através da qual você está experimentando a Nuvem. <br/><br/>
