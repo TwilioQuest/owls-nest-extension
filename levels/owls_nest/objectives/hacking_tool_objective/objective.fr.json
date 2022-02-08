@@ -1,0 +1,15 @@
+{
+  "title": "Pirater l'interface",
+  "description": "Avec l'<strong>outil de piratage</strong>, vous pouvez éliminer des obstacles comme cette barrière laser. Récupérez l'outil de piratage <strong>sur un piédestal dans cette pièce</strong>!",
+  "validation_fields": [
+    {
+      "name": "passcode",
+      "type": "text",
+      "placeholder": "ENTER PASSCODE HERE",
+      "label": "Une fois l'outil de piratage en main, vous trouverez un code d'accès secret dans la section «Objective» (Objectif) de l'interface. Saisissez ce code d'accès ici:"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}

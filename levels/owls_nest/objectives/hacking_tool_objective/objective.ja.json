@@ -1,0 +1,15 @@
+{
+  "title": "ハッキングインターフェイスの基礎",
+  "description": "<strong>ハッキングツール</strong>を使用すると、このレーザーバリアのような障害物を回避できます。ハッキングツールは<strong>この部屋の台座</strong>で見つけてください。",
+  "validation_fields": [
+    {
+      "name": "passcode",
+      "type": "text",
+      "placeholder": "ENTER PASSCODE HERE",
+      "label": "ハッキングツールを手に入れ、インターフェイスの[Objective]セクションで秘密のパスコードを確認しましょう。そのパスコードをここに入力してください:"
+    }
+  ],
+  "rewards": {
+    "xp": 100
+  }
+}
