@@ -9,7 +9,7 @@ module.exports = {
   "owls_nest.chiaraDefault.default_follow_up_greeting": "あなたが誰なのか、ここで何をしているのかをもう一度教えてくれませんか?",
   "owls_nest.chiaraDefault.default": `神経インターフェイスは安定しています...生命反応はすべて正常の範囲内です。
   あなたは生きてここにいます。なんて素晴らしいことでしょう!`,
-  "owls_nest.chiaraDefault.follow_up_greeting": "{settings.name}、こんにちは。大丈夫?何かお手伝いできることはありますか?",
+  "owls_nest.chiaraDefault.follow_up_greeting": "{name}、こんにちは。大丈夫?何かお手伝いできることはありますか?",
   "owls_nest.chiaraDefault.chiara": `確かに!そうですね。<span class='highlight'>Chiara</span>、
   TwilioQuestプログラムの最高医療責任者です。あなたがThe Cloudを
   体験している新しい神経インターフェイスを設計したのは私です。<br/><br/>
