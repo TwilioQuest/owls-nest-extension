@@ -53,7 +53,7 @@ Para concluir este desafio, você deve **adquirir o dispositivo de hackeamento e
 <div class="passcode passcode-open">
 <h3>SENHA DISPONÍVEL</h3>
 <p>
-O código de desvio do laser é: <b>NÍVEL SUPERIOR</b>
+O código de desvio do laser é: <b>LEVEL UP</b>
 </p>
 <p>
 <i>Digite esse código no campo de texto à direita e clique em "HACK".</i>
