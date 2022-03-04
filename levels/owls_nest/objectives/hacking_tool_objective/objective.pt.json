@@ -1,12 +1,12 @@
 {
-  "title": "Noções básicas sobre a interface de hackeamento",
-  "description": "Usando a <strong>ferramenta de hackeamento</strong>, você pode hackear e destruir obstáculos como essa barreira de laser. Encontre a ferramenta de hackeamento no <strong>pedestal nesta sala</strong>!",
+  "title": "Noções básicas sobre a interface de Hacking",
+  "description": "Usando a <strong>ferramenta de hacking</strong>, você pode hack e destruir obstáculos como essa barreira de laser. Encontre a ferramenta de hacking no <strong>pedestal nesta sala</strong>!",
   "validation_fields": [
     {
       "name": "passcode",
       "type": "text",
       "placeholder": "ENTER PASSCODE HERE",
-      "label": "Depois de obter a ferramenta de hackeamento, você poderá encontrar uma senha secreta na seção \"Objective\" (Objetivo) da interface. Insira essa senha aqui:"
+      "label": "Depois de obter a ferramenta de hacking, você poderá encontrar uma senha secreta na seção \"Objective\" (Objetivo) da interface. Insira essa senha aqui:"
     }
   ],
   "rewards": {

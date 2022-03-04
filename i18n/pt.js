@@ -174,41 +174,41 @@ module.exports = {
   estação. Temos uma dívida com você que nunca podemos pagar.<br/><br/> É por isso 
   que me dói pedir mais um favor a você.`,
   "owls_nest.margaretDefault.break_stuff_break_stuff": "Você tem o hábito de quebrar as coisas?",
-  "owls_nest.margaretDefault.get_started_firstObjectiveHacked_response": "Parece que a ferramenta de hackeamento funciona conforme anunciado. Não há mais barreira de laser.",
-  "owls_nest.margaretDefault.get_started_hackingToolAcquired_response": "Agora que eu tenho o dispositivo de hackeamento, o que devo fazer?",
+  "owls_nest.margaretDefault.get_started_firstObjectiveHacked_response": "Parece que a ferramenta de hacking funciona conforme anunciado. Não há mais barreira de laser.",
+  "owls_nest.margaretDefault.get_started_hackingToolAcquired_response": "Agora que eu tenho o dispositivo de hacking, o que devo fazer?",
   "owls_nest.margaretDefault.get_started_get_started": "Entendo que você tem uma ferramenta que pode me ajudar com a missão.",
   "owls_nest.margaretDefault.break_stuff_no_harm": "Ei, nenhum dano, nenhuma falta, certo?",
   "owls_nest.margaretDefault.break_stuff_what_vcr": "O que é um videocassete?",
-  "owls_nest.margaretDefault.get_started_understood": "A ferramenta de hackeamento será muito útil, obrigado! Qual é a nossa próxima etapa?",
-  "owls_nest.margaretDefault.get_started_how_hack": "Como uso a ferramenta de hackeamento?",
-  "owls_nest.margaretDefault.how_hack_understood": "Encontre uma coisa para hackear, conclua uma tarefa e colha as recompensas. Entendi.",
+  "owls_nest.margaretDefault.get_started_understood": "A ferramenta de hacking será muito útil, obrigado! Qual é a nossa próxima etapa?",
+  "owls_nest.margaretDefault.get_started_how_hack": "Como uso a ferramenta de hacking?",
+  "owls_nest.margaretDefault.how_hack_understood": "Encontre uma coisa para hack, conclua uma tarefa e colha as recompensas. Entendi.",
   "owls_nest.margaretDefault.keep_moving_who_are_you": "Você poderia me lembrar quem você é e o que faz aqui?",
   "owls_nest.margaretDefault.default_default": "Legal! Já nos conhecemos?",
   "owls_nest.margaretDefault.default_follow_up_greeting": "Você poderia me lembrar quem você é e o que faz aqui?",
   "owls_nest.margaretDefault.default": "Ops, Operador! Aqui! Eu tenho algo para mostrar a você.",
   "owls_nest.margaretDefault.follow_up_greeting": "Saudações, colega humano. Posso oferecer sabedoria ou ajuda?",
-  "owls_nest.margaretDefault.how_hack": `Caminhe até um objeto que você acha que pode ser hackeável e pressione a 
+  "owls_nest.margaretDefault.how_hack": `Caminhe até um objeto que você acha que pode ser hackable e pressione a 
   <span class='highlight'>barra de espaço</span>. Isso deve abrir a 
-  interface de hackeamento. A interface de hackeamento apresentará algum tipo 
+  interface de hacking. A interface de hacking apresentará algum tipo 
   de desafio - talvez seja necessário escrever código, responder algumas perguntas... coisas assim.
   <br/><br/>Complete o desafio conforme descrito e SHAZAM! O que estava
   bloqueado antes não está mais bloqueado.`,
-  "owls_nest.margaretDefault.get_started_firstObjectiveHacked": `Você usou a ferramenta de hackeamento para reduzir essa barreira de laser! 
+  "owls_nest.margaretDefault.get_started_firstObjectiveHacked": `Você usou a ferramenta de hacking para reduzir essa barreira de laser! 
   Iuuuupi! Isso!`,
-  "owls_nest.margaretDefault.get_started_hackingToolAcquired": `Ah, você pegou a ferramenta de hackeamento do pedestal? Isso é ótimo! 
+  "owls_nest.margaretDefault.get_started_hackingToolAcquired": `Ah, você pegou a ferramenta de hacking do pedestal? Isso é ótimo! 
   É para você! Para a aventura!<br/><br/>
   Você deve testá-la no 
   <span class='highlight'>terminal conectado a esses lasers irritantes</span>
   ali.`,
-  "owls_nest.margaretDefault.get_started": `É melhor você acreditar que sim. É aquela <span class='highlight'>ferramenta de hackeamento 
+  "owls_nest.margaretDefault.get_started": `É melhor você acreditar que sim. É aquela <span class='highlight'>ferramenta de hacking 
   colocada no pedestal ali</span>. Com essa pequena maravilha, 
   você poderá quebrar todos os tipos de coisas - em nome da justiça, 
-  é claro.<br/><br/> Você pode usar a ferramenta de hackeamento para ignorar portas trancadas, 
+  é claro.<br/><br/> Você pode usar a ferramenta de hacking para ignorar portas trancadas, 
   abrir baús e, principalmente, <span class='highlight'>desligar barreiras de laser</span> 
   como esta nesta sala.`,
   "owls_nest.margaretDefault.margaret": `<span class='highlight'>Margaret</span>, e muito prazer 
   em conhecê-la. Sou cientista experimental 
-  no programa TwilioQuest e inventora da ferramenta de hackeamento extremamente útil 
+  no programa TwilioQuest e inventora da ferramenta de hacking extremamente útil 
   que você usará em suas aventuras. <br/><br/> Eu tenho basicamente o melhor trabalho de todos os tempos - 
   eu consigo quebrar coisas e montá-las novamente, e ninguém 
   parece se importar!`,
@@ -232,7 +232,7 @@ module.exports = {
   "owls_nest.ryanBehindFire.how_help": `Deve haver um <span class='highlight'>extintor de incêndio</span>
   na sala de armazenamento! Ele está dentro de um <span class='highlight'>baú vermelho</span>.
   <br/><br/>Com toda a segurança da estação enlouquecendo, pode ser necessário 
-  <span class='highlight'>hackear o baú</span> primeiro. Assim que você pegar o 
+  <span class='highlight'>hack o baú</span> primeiro. Assim que você pegar o 
   extintor de incêndio, volte aqui e apague as chamas. Por favor?`,
   "owls_nest.ryanBehindFire.oh_no": "Oi! Operador! Ajudinha?",
   "owls_nest.ryanDefault.thanks_you_okay": "Obrigado, irei o mais rápido que puder. Você vai ficar bem?",
@@ -247,7 +247,7 @@ module.exports = {
   "owls_nest.ryanVictory.default": `Cuide bem da Owl para mim! Se você tiver algum problema,
   <a href='https://twil.io/tq-discord'>não deixe de nos avisar</a>, ok?`,
   "owls_nest.updateQuestStatus.description": "Use as teclas WASD ou de seta para mover e a barra de espaço para interagir. Ligue o botão azul!",
-  "owls_nest.updateQuestStatus.movementSwitch": `Pegue a ferramenta de hackeamento do pedestal e use-a para contornar o
+  "owls_nest.updateQuestStatus.movementSwitch": `Pegue a ferramenta de hacking do pedestal e use-a para contornar o
   terminal de segurança.`,
   "owls_nest.updateQuestStatus.firstObjectiveHacked": "Fale com Kevin e Cedric e, em seguida, assuma o comando da Fog Owl!",
   "owls_nest.updateQuestStatus.fredricThreatReceived": `Pegue os códigos de substituição de autodestruição de Ryan! Você precisará de um 
@@ -268,12 +268,12 @@ module.exports = {
   o veja sem um bom motivo.`,
   "owls_nest.fire_extinguisher_objective.success": `Você conseguiu! Depois de confirmar seu conhecimento sobre segurança do computador, abrir o baú
   e recuperar o extintor de incêndio, você precisará salvar Ryan.`,
-  "owls_nest.hacking_tool_objective.hackingToolAcquired": `Para contornar esse sistema, você precisa da <strong>ferramenta de hackeamento</strong>. 
-  Obtenha a ferramenta de hackeamento caminhando até o pedestal nesta sala e pressionando 
+  "owls_nest.hacking_tool_objective.hackingToolAcquired": `Para contornar esse sistema, você precisa da <strong>ferramenta de hacking</strong>. 
+  Obtenha a ferramenta de hacking caminhando até o pedestal nesta sala e pressionando 
   a barra de espaço.`,
   "owls_nest.hacking_tool_objective.passcode": "BZZZT! A senha de substituição do laser é obrigatória.",
   "owls_nest.hacking_tool_objective.levelUp": `Senha não reconhecida. Leia a seção \"Objective\" (Objetivo) da
-  interface de hackeamento para revelar a senha correta.`,
+  interface de hacking para revelar a senha correta.`,
   "owls_nest.hacking_tool_objective.success": `Você insere a senha necessária para ignorar os lasers. Logo depois, os lasers
   retraem e limpam seu caminho em direção à Fog Owl!`,
   "owls_nest.handleSkipPrologue.skip": "Ignorar prólogo...",

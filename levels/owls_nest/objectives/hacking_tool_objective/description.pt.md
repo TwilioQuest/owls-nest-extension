@@ -7,14 +7,14 @@ const worldState = levelState['com.twilioquest.owls_nest'];
 <div class="aside">
 <h3>Lista de tarefas</h3>
 <ul>
-  <li>Obtenha a ferramenta de hackeamento do pedestal nesta sala.</li>
+  <li>Obtenha a ferramenta de hacking do pedestal nesta sala.</li>
   <li>Localize a senha secreta na guia "Objetivo" (esta tela).</li>
   <li>Digite a senha no campo à direita e clique em <em>HACK</em>.</li>
 </ul>
 </div>
-O mundo do TwilioQuest está cheio de **objetos hackeáveis** como este terminal. Usando a ferramenta de hackeamento de última geração desenvolvida pelo programa TwilioQuest, você poderá hackear esses objetos completando desafios técnicos (e não técnicos). Esses desafios podem envolver responder perguntas, escrever códigos em um arquivo no seu computador e muito mais.
+O mundo do TwilioQuest está cheio de **objetos hackable** como este terminal. Usando a ferramenta de hacking de última geração desenvolvida pelo programa TwilioQuest, você poderá hack esses objetos completando desafios técnicos (e não técnicos). Esses desafios podem envolver responder perguntas, escrever códigos em um arquivo no seu computador e muito mais.
 
-Para concluir este desafio, você deve **adquirir o dispositivo de hackeamento encontrado no pedestal desta sala**. A senha necessária para contornar a barreira do laser aparecerá na caixa abaixo. Digite a senha no campo de texto à direita e clique em *HACK* para derrubar a barreira de laser.
+Para concluir este desafio, você deve **adquirir o dispositivo de hacking encontrado no pedestal desta sala**. A senha necessária para contornar a barreira do laser aparecerá na caixa abaixo. Digite a senha no campo de texto à direita e clique em *HACK* para derrubar a barreira de laser.
 
 <style>
 .passcode {
