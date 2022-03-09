@@ -5,7 +5,7 @@
     {
       "name": "passcode",
       "type": "text",
-      "placeholder": "ENTER PASSCODE HERE",
+      "placeholder": "INSIRA A SENHA AQUI",
       "label": "Depois de obter a ferramenta de hacking, você poderá encontrar uma senha secreta na seção \"Objective\" (Objetivo) da interface. Insira essa senha aqui:"
     }
   ],

@@ -47,31 +47,17 @@ module.exports = {
       const levelState = world.getState(STATE_KEY) || {};
 
       if (levelState.missionComplete) {
-        world.showNotification(`
-          With the self destruct disabled, the Fog Owl shows green across the
-          board. The Owl is ready to fly!
-        `);
+        world.showNotification(world.getTranslatedString('owls_nest.objects.fog_owl_controls.readyToFly'));
       } else if (levelState.ryanSaved) {
-        world.showNotification(`
-          You hear an automated voice over the PA system:<br/><br/>
-          "Self destruct sequence disabled. Imminent destruction prevented.
-          Have a nice day, and please drive home safely."
-        `);
+        world.showNotification(world.getTranslatedString('owls_nest.objects.fog_owl_controls.haveANiceDay'));
         await world.wait(5000);
         levelState.missionComplete = true;
         world.setState(STATE_KEY, levelState);
         window.warp('owls_nest', 'player_entry1', 'victory');
       } else if (levelState.fredricThreatReceived) {
-        world.showNotification(`
-          The console is completely inoperable. You need to <em>find Ryan
-          and retrieve his access codes</em> to access the console and abort
-          the Fog Owl's self-destruct sequence.
-        `);
+        world.showNotification(world.getTranslatedString('owls_nest.objects.fog_owl_controls.consoleInoperable'));
       } else {
-        world.showNotification(`
-          This console controls the Fog Owl's preflight routines. It looks like
-          it's almost ready for launch.
-        `);
+        world.showNotification(world.getTranslatedString('owls_nest.objects.fog_owl_controls.almostReady'));
       }
     }
   }

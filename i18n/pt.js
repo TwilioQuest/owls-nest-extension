@@ -277,5 +277,20 @@ module.exports = {
   "owls_nest.hacking_tool_objective.success": `Você insere a senha necessária para ignorar os lasers. Logo depois, os lasers
   retraem e limpam seu caminho em direção à Fog Owl!`,
   "owls_nest.handleSkipPrologue.skip": "Ignorar prólogo...",
-  "owls_nest.handleSkipPrologue.confirm": "Tem certeza de que deseja pular o restante do prólogo e ser transportado direto para a Fog Owl?"
+  "owls_nest.handleSkipPrologue.confirm": "Tem certeza de que deseja pular o restante do prólogo e ser transportado direto para a Fog Owl?",
+  "owls_nest.objects.fog_owl_controls.readyToFly": `Com a autodestruição desativada, a Fog Owl aparece verde em todo o
+  quadro. A Owl está pronta para voar!`,
+  "owls_nest.objects.fog_owl_controls.haveANiceDay": `Você ouve uma voz automatizada no sistema PA:<br/><br/>
+  \"Sequência de autodestruição desativada. Destruição iminente impedida.
+  Tenha um bom dia e pilote para casa com segurança.\"`,
+  "owls_nest.objects.fog_owl_controls.consoleInoperable": `O console está completamente inoperante. Você precisa <em>encontrar Ryan
+  e recuperar os códigos de acesso</em> para acessar o console e anular
+  a sequência de autodestruição da Fog Owl.`,
+  "owls_nest.objects.fog_owl_controls.almostReady": `Este console controla as rotinas de pré-voo da Fog Owl. Parece que
+  está quase na hora de zarpar.`,
+  "owls_nest.objects.hacking_tool.almostReady": `<i>Com esta ferramenta de hacking, devo conseguir <span class='highlight'>
+  invadir o terminal</span> que controla a barreira do laser nesta sala!</i>
+  <br/><br/>
+  (Para hackear um objeto, caminhe até ele e pressione a <span class='highligh'>
+  barra de espaço</span> para abrir a interface de hacking).`,
 }
