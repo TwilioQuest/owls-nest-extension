@@ -279,4 +279,19 @@ module.exports = {
   "owls_nest.handleSkipPrologue.skip": "Passer le prologue...",
   "owls_nest.handleSkipPrologue.confirm": "Voulez-vous vraiment passer le reste du prologue et être téléporté(e) directement sur le Fog Owl?",
   'owls_nest.updateQuestStatus.title': `Vous quittez le Owl's Nest`,
+  "owls_nest.objects.fog_owl_controls.readyToFly": `Lorsque l'autodestruction est désactivée, le Fog Owl s'affiche en vert à tous les
+  niveaux. Le Fog Owl est prêt à s'envoler!`,
+  "owls_nest.objects.fog_owl_controls.haveANiceDay": `Vous entendez une voix automatisée sur le système de sonorisation:<br/><br/>
+  « Séquence d'autodestruction désactivée. Destruction imminente empêchée.
+  Bonne journée et faites attention en rentrant.»`,
+  "owls_nest.objects.fog_owl_controls.consoleInoperable": `La console est complètement inutilisable. Vous devez <em>trouver Ryan
+  et récupérer ses codes d'accès</em> pour accéder à la console et annuler
+  la séquence d'autodestruction du Fog Owl.`,
+  "owls_nest.objects.fog_owl_controls.almostReady": `Cette console gère les contrôles de routine d'avant vol du Fog Owl. Il semble
+  qu'il soit presque prêt pour le lancement.`,
+  "owls_nest.objects.hacking_tool.almostReady": `<i>Avec cet outil de piratage, je devrais pouvoir <span class='highlight'>
+  pirater le terminal</span> contrôlant la barrière laser dans cette pièce!</i>
+  <br/><br/>
+  (Pour pirater un objet, approchez-vous et appuyez sur la <span class='highligh'>
+  barre d'espace</span> pour faire apparaître l'interface de piratage.)`,
 }

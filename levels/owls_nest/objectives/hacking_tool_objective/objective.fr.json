@@ -5,7 +5,7 @@
     {
       "name": "passcode",
       "type": "text",
-      "placeholder": "ENTER PASSCODE HERE",
+      "placeholder": "SAISIR LE CODE D'ACCÈS ICI",
       "label": "Une fois l'outil de piratage en main, vous trouverez un code d'accès secret dans la section «Objective» (Objectif) de l'interface. Saisissez ce code d'accès ici:"
     }
   ],

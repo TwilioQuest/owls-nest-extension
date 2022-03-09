@@ -278,5 +278,20 @@ module.exports = {
   レーザーが解除され、Fog Owlに向かう経路が開かれます。`,
   "owls_nest.handleSkipPrologue.skip": "プロローグをスキップ...",
   "owls_nest.handleSkipPrologue.confirm": "プロローグの残りをスキップし、Fog Owlにワープしてもよろしいですか?",
-  'owls_nest.updateQuestStatus.title': `Owl's Nestを離れる`
+  'owls_nest.updateQuestStatus.title': `Owl's Nestを離れる`,
+  "owls_nest.objects.fog_owl_controls.readyToFly": `自爆を無効にすると、Fog Owlの全体ステータスが良好になります。
+  Owlの発信準備完了!`,
+  "owls_nest.objects.fog_owl_controls.haveANiceDay": `PAシステムから自動音声が聞こえてくる: <br/><br/>
+  '自爆シーケンスが無効になりました。差し迫った崩壊の危機は阻止されました。
+  よい1日を。安全に帰還してください。'`,
+  "owls_nest.objects.fog_owl_controls.consoleInoperable": `コンソールがまったく動かない。コンソールにアクセスして
+  Fog Owlの自爆シーケンスを止めるには、<em>Ryanを探して彼が持つアクセス
+  コードを聞き出す必要があります。</em>`,
+  "owls_nest.objects.fog_owl_controls.almostReady": `このコンソールは、Fog Owlの発信前の点検作業を制御しています。
+  発信準備はほとんど完了しているようです。`,
+  "owls_nest.objects.hacking_tool.almostReady": `<i>このハッキングツールを使えば、この部屋にあるレーザーバリアを制御して
+  いる<span class='highlight'>ターミナルをハッキング</span>できるに違いない！</i>
+  <br/><br/>
+  （対象をハッキングするには、歩いて近づき<span class='highligh'>
+  スペースバー</span>を押してハッキングインターフェイスを表示します）`,
 }

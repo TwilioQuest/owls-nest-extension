@@ -5,7 +5,7 @@
     {
       "name": "passcode",
       "type": "text",
-      "placeholder": "ENTER PASSCODE HERE",
+      "placeholder": "パスコードを入力",
       "label": "ハッキングツールを手に入れ、インターフェイスの[Objective]セクションで秘密のパスコードを確認しましょう。そのパスコードをここに入力してください:"
     }
   ],
