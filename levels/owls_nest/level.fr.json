@@ -1,0 +1,27 @@
+{
+  "title": "Owl's Nest",
+  "description": "Centre de recherche top secret utilisé pour les projets de recherche et développement stratégiques du programme TwilioQuest. Lieu de naissance de Cedric et du prototype de vaisseau d'exploration du cloud (CEV - Cloud Exploration Vessel), le Fog Owl.",
+  "questTitle": "Vous quittez le Owl's Nest",
+  "questDescription": "Utilisez les touches WASD (en Qwerty) ou les flèches pour vous déplacer. Appuyez sur la barre d'espace pour lancer les interactions. Appuyez sur l'interrupteur bleu!",
+  "defaultGoal": "Prenez les commandes d'un prototype de vaisseau d'exploration du cloud. Discutez avec les scientifiques de TwilioQuest pour obtenir de l'aide et des informations.",
+  "disableFogOwlButton": true,
+  "mission_icon": "mission_icon.png",
+  "is_mission": false,
+  "priority": 1,
+  "backgroundMusic": "fascinatingarea_108253b",
+  "backgroundEffect": {
+    "key": "starfield",
+    "options": {
+      "direction": "rightToLeft",
+      "baseSpeed": 0.015
+    }
+  },
+  "flavorTextOverrides": {
+    "security_pylon": "Ces pylônes de sécurité ne bougeront pas tant que je n'aurai pas <em>appuyé sur l'interrupteur bleu à gauche</em>.<br/><br/>Pour interagir avec un objet, comme l'interrupteur, je dois m'en approcher et appuyer sur la <em>barre d'espace</em>.",
+    "under_construction": "On dirait que cette partie de la base est toujours en travaux."
+  },
+  "objectives": [
+    "hacking_tool_objective",
+    "fire_extinguisher_objective"
+  ]
+}

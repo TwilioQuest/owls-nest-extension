@@ -1,0 +1,27 @@
+{
+  "title": "Sécurité du code",
+  "description": "Ce coffre contient un <strong>extincteur</strong> que vous pouvez utiliser pour éteindre des incendies. Pour obtenir cet objet, vous allez devoir prouver que vous pouvez utiliser du code de manière responsable!",
+  "validation_fields": [
+    {
+      "name": "answer1",
+      "type": "boolean",
+      "label": "Vrai ou faux: un logiciel que vous installez sur votre ordinateur peut potentiellement accéder à vos fichiers et vos données personnelles."
+    },
+    {
+      "name": "answer2",
+      "type": "boolean",
+      "label": "Vrai ou faux: les échantillons de code trouvés sur Internet que vous copiez, collez et exécutez ne peuvent pas endommager votre ordinateur."
+    },
+    {
+      "name": "answer3",
+      "type": "boolean",
+      "label": "Vrai ou faux: il est toujours sécurisé d'intégrer des mots de passe, e-mails et autres données personnelles dans des fichiers de code."
+    }
+  ],
+  "rewards": {
+    "xp": 100,
+    "items": [
+      "fire_extinguisher"
+    ]
+  }
+}

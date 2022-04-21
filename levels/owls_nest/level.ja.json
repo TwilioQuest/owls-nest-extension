@@ -1,0 +1,27 @@
+{
+  "title": "Owl's Nest",
+  "description": "TwilioQuestプログラム内で戦略的R&Dプロジェクトに使用されている極秘研究施設。Cedricや、CEV「Fog Owl」のプロトタイプが生まれた場所である。",
+  "questTitle": "Owl's Nestを離れる",
+  "questDescription": "移動にはWASDキーまたは矢印キー、対話にはスペースバーを使用します。青いスイッチを入れてください。",
+  "defaultGoal": "クラウド探検船のプロトタイプの指揮を取ります。サポートや詳細情報が必要な場合はTwilioQuestの科学者と話をします。",
+  "disableFogOwlButton": true,
+  "mission_icon": "mission_icon.png",
+  "is_mission": false,
+  "priority": 1,
+  "backgroundMusic": "fascinatingarea_108253b",
+  "backgroundEffect": {
+    "key": "starfield",
+    "options": {
+      "direction": "rightToLeft",
+      "baseSpeed": 0.015
+    }
+  },
+  "flavorTextOverrides": {
+    "security_pylon": "セキュリティゲートは<em>左側の青いスイッチを入れる</em>まで動きません。<br/><br/>スイッチなどを操作するには、歩いて近づき、<em>スペースバー</em>を押します。",
+    "under_construction": "基地のこの部分はまだ建設中のようです。"
+  },
+  "objectives": [
+    "hacking_tool_objective",
+    "fire_extinguisher_objective"
+  ]
+}
