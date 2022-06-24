@@ -19,6 +19,14 @@ function handleSkipPrologue(event, world, worldState) {
           `Are you sure you want to skip the rest of the prologue and be warped straight to the Fog Owl?`
         )
       ) {
+        world.analytics.event(
+          "Prologue",
+          "Skipped Prologue",
+          "Owl's Nest",
+          null,
+          "/maps/owls_nest/default",
+          "Owl's Nest Default Map"
+        );
         worldState.shouldSkipPrologue = true;
         world.warp("fog_owl");
       }
