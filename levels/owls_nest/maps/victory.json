@@ -381,7 +381,7 @@
                  "y":432
                 }, 
                 {
-                 "gid":11151,
+                 "gid":10016,
                  "height":72,
                  "id":305,
                  "name":"",
@@ -494,7 +494,7 @@
                  "value":true
                 }],
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":64,
          "x":0,
          "y":0
@@ -503,7 +503,7 @@
  "nextobjectid":307,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.6.0",
+ "tiledversion":"1.8.0",
  "tileheight":24,
  "tilesets":[
         {
@@ -534,13 +534,9 @@
         {
          "firstgid":11040,
          "source":"..\/..\/..\/..\/.bundled\/tilesets\/FogOwlShip_Entrance.json"
-        }, 
-        {
-         "firstgid":11136,
-         "source":"..\/..\/..\/..\/twilioquest-base\/tilesets\/TwilioQuestObjects.json"
         }],
  "tilewidth":24,
  "type":"map",
- "version":"1.6",
+ "version":"1.8",
  "width":64
 }
